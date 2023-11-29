@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-const Root = () => {
+const Main = () => {
     return (
         <div>
-            <h3 className="text-2xl text-center">Root Element</h3>
+            <h3 className="text-2xl text-center">Main Element</h3>
             <Outlet></Outlet>
         </div>
     );
 };
 
-export default Root;
+export default Main;
