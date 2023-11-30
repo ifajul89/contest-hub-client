@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-transparent">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div
@@ -53,9 +53,16 @@ const Navbar = () => {
                     <ul className="menu-horizontal px-1">{navItem}</ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className="btn">
-                        Log In
-                    </Link>
+                    {user ? (
+                        <img className="rounded-full w-11 border-2 border-[#33362F]" src={user?.photoURL} alt="Profile" />
+                    ) : (
+                        <Link
+                            to="/login"
+                            className="btn bg-[#33362F] text-white rounded-2xl hover:bg-black"
+                        >
+                            Log In
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
