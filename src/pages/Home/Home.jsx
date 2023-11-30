@@ -1,9 +1,11 @@
 import Header from "./components/Header";
+import PopularContest from "./components/PopularContest";
 
 const Home = () => {
     return (
-        <div className="container mx-auto">
+        <div>
             <Header></Header>
+            <PopularContest></PopularContest>
         </div>
     );
 };

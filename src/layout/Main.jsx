@@ -8,7 +8,7 @@ const Main = () => {
         location.pathname.includes("login") ||
         location.pathname.includes("sign-up");
     return (
-        <div className="bg-[#FAF3E1]">
+        <div>
             {noHeaderFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
             {noHeaderFooter || <Footer></Footer>}
