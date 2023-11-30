@@ -5,13 +5,25 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
-    console.log(user);
+    const { user, logOutUser } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOutUser().then((result) => {
+            console.log(result);
+        });
+    };
 
     const navItem = (
         <>
             <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink className="px-2 py-1 block" to="/">
+                    Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className="px-2 py-1 block" to="/all-contest">
+                    All Contest
+                </NavLink>
             </li>
         </>
     );
@@ -24,7 +36,7 @@ const Navbar = () => {
                         <div
                             tabIndex={0}
                             role="button"
-                            className="btn btn-ghost lg:hidden"
+                            className="btn btn-sm btn-square lg:hidden"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -41,11 +53,11 @@ const Navbar = () => {
                                 />
                             </svg>
                         </div>
-                        <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul className="dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box space-y-2 w-32">
                             {navItem}
                         </ul>
                     </div>
-                    <Link to="/" className="text-2xl font-extrabold">
+                    <Link to="/" className="text-sm md:text-2xl font-extrabold">
                         Contest Hub
                     </Link>
                 </div>
@@ -54,11 +66,36 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {user ? (
-                        <img className="rounded-full w-11 border-2 border-[#33362F]" src={user?.photoURL} alt="Profile" />
+                        <details className="dropdown dropdown-end">
+                            <summary className="m-1 btn btn-circle btn-ghost p-0 hover:bg-transparent">
+                                <img
+                                    className="rounded-full w-11 border-2 border-[#33362F]"
+                                    src={user?.photoURL}
+                                    alt="Profile"
+                                />
+                            </summary>
+                            <ul className="p-3 space-y-1 shadow dropdown-content z-[1] bg-base-100 rounded-box w-40">
+                                <li className="text-center text-gray-500 text-xl">
+                                    {user?.displayName}
+                                </li>
+                                <Link
+                                    to="/dashboard"
+                                    className="btn btn-sm w-full"
+                                >
+                                    Dashboard
+                                </Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="btn btn-sm w-full"
+                                >
+                                    Log Out
+                                </button>
+                            </ul>
+                        </details>
                     ) : (
                         <Link
                             to="/login"
-                            className="btn bg-[#33362F] text-white rounded-2xl hover:bg-black"
+                            className="btn bg-[#33362F] btn-sm md:btn-md text-white rounded-2xl hover:bg-black"
                         >
                             Log In
                         </Link>

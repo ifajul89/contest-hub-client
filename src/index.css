@@ -9,5 +9,5 @@ body {
 }
 
 .active {
-    @apply border-2 border-gray-500 px-2 py-1 rounded-full
+    @apply border-2 border-gray-500 rounded-full
 }

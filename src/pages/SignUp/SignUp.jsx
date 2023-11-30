@@ -53,11 +53,17 @@ const SignUp = () => {
                     className="btn btn-sm lg:btn-md lg:rounded-full bg-[#CCA491] border-0 lg:text-lg text-white hover:bg-[#B38F7F] absolute top-6 left-2 lg:top-10 lg:left-10"
                 >
                     <IoMdArrowRoundBack />
-                    <span className="hidden lg:inline-block">Go Back To Home</span>
+                    <span className="hidden lg:inline-block">
+                        Go Back To Home
+                    </span>
                 </Link>
                 <div className="lg:space-y-5">
-                    <h4 className="text-2xl hidden lg:inline-block">Hello User,</h4>
-                    <h3 className="text-xl lg:text-7xl font-bold">Please Sign Up!</h3>
+                    <h4 className="text-2xl hidden lg:inline-block">
+                        Hello User,
+                    </h4>
+                    <h3 className="text-xl lg:text-7xl font-bold">
+                        Please Sign Up!
+                    </h3>
                     <p className="text-xl hidden lg:inline-block">
                         Welcome to ContestHub, where every sign-up is a step
                         towards fostering creativity and celebrating talent!
@@ -165,7 +171,11 @@ const SignUp = () => {
                         )}
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-[#E6B8A4] rounded-full text-white border-0 font-bold" type="submit" value="Sign Up" />
+                        <input
+                            className="btn bg-[#E6B8A4] hover:bg-[#B38F7F] rounded-full text-white border-0 font-bold"
+                            type="submit"
+                            value="Sign Up"
+                        />
                     </div>
                     <div className="text-center mt-5">
                         <p>
