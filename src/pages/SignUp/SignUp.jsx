@@ -49,19 +49,19 @@ const SignUp = () => {
     };
 
     return (
-        <div className="flex bg-[#FAF3E1]">
-            <div className="w-3/5 h-screen bg-[#E6B8A4] rounded-r-md p-10 flex flex-col justify-center gap-5 text-white relative">
+        <div className="flex flex-col lg:flex-row bg-[#FAF3E1]">
+            <div className="lg:w-3/5 h-20 lg:h-screen bg-[#E6B8A4] rounded-b-sm lg:rounded-r-md lg:p-10 flex flex-col justify-center items-center lg:items-start gap-5 text-white relative">
                 <Link
                     to="/"
-                    className="btn rounded-full bg-[#CCA491] border-0 text-lg text-white hover:bg-[#B38F7F] absolute top-10 left-10"
+                    className="btn btn-sm lg:btn-md lg:rounded-full bg-[#CCA491] border-0 lg:text-lg text-white hover:bg-[#B38F7F] absolute top-6 left-2 lg:top-10 lg:left-10"
                 >
                     <IoMdArrowRoundBack />
-                    Go Back To Home
+                    <span className="hidden lg:inline-block">Go Back To Home</span>
                 </Link>
-                <div className="space-y-5">
-                    <h4 className="text-2xl">Hello User,</h4>
-                    <h3 className="text-7xl font-bold">Please Sign Up!</h3>
-                    <p className="text-xl">
+                <div className="lg:space-y-5">
+                    <h4 className="text-2xl hidden lg:inline-block">Hello User,</h4>
+                    <h3 className="text-xl lg:text-7xl font-bold">Please Sign Up!</h3>
+                    <p className="text-xl hidden lg:inline-block">
                         Welcome to ContestHub, where every sign-up is a step
                         towards fostering creativity and celebrating talent!
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
@@ -69,14 +69,14 @@ const SignUp = () => {
                         an exciting journey of innovation and recognition.
                     </p>
                 </div>
-                <p className="absolute bottom-10 left-10 right-10">
+                <p className="absolute bottom-10 left-10 right-10 hidden lg:inline-block">
                     {/* eslint-disable-next-line react/no-unescaped-entities */}
                     <b>Pro Tip: </b> Complete your profile to stand out in the
                     community and increase your chances of being recognized for
                     your talent!
                 </p>
             </div>
-            <div className="w-2/5 p-10 flex items-center">
+            <div className="lg:w-2/5 p-3 lg:p-10 flex items-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="form-control">
                         <label className="label">
@@ -91,7 +91,7 @@ const SignUp = () => {
                         />
                         {errors.name && (
                             <span className="text-red-500">
-                                Your is required
+                                Your Name is required
                             </span>
                         )}
                     </div>
