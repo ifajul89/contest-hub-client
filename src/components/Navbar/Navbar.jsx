@@ -1,8 +1,13 @@
 // import { SiApostrophe } from "react-icons/si";
 
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user);
+
     const navItem = (
         <>
             <li>
@@ -48,7 +53,9 @@ const Navbar = () => {
                     <ul className="menu-horizontal px-1">{navItem}</ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Log In</a>
+                    <Link to="/login" className="btn">
+                        Log In
+                    </Link>
                 </div>
             </div>
         </div>
