@@ -1,3 +1,5 @@
+import { TbDirectionSign } from "react-icons/tb";
+
 const Header = () => {
     return (
         <div className="">
@@ -7,7 +9,10 @@ const Header = () => {
                     <br />
                     Contest With
                     <br />
-                    Us
+                    <span className="flex items-center">
+
+                    Us<TbDirectionSign/>
+                    </span>
                 </h3>
             </div>
             <div></div>
