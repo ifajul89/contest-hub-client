@@ -1,8 +1,13 @@
+/* eslint-disable react/no-unescaped-entities */
 import { TbDirectionSign } from "react-icons/tb";
+import GreenHoodieGuy from "../../../assets/greenHoodie.png";
+import YellowTShirtLady from "../../../assets/yellowTShirtLady.png";
+import { FaCheck } from "react-icons/fa6";
+import { WiDirectionLeft } from "react-icons/wi";
 
 const Header = () => {
     return (
-        <div className="py-10">
+        <div className="flex justify-around items-center py-10">
             <div className="space-y-5">
                 <h3 className="text-6xl font-bold">
                     Create Your
@@ -32,7 +37,28 @@ const Header = () => {
                     />
                 </form>
             </div>
-            <div></div>
+            <div className="w-1/2 flex relative h-[500px]">
+                <div
+                    className="bg-[#E6B8A4] border border-gray-900 p-4 w-60 rounded-t-full absolute bottom-0 right-10 z-10
+                "
+                >
+                    <div className="bg-[#9BD3D0] border border-gray-900 h-full flex items-end rounded-t-full">
+                        <img src={GreenHoodieGuy} alt="" />
+                        <div className="border-2 border-gray-900 rounded-full bg-white p-3 absolute -bottom-4 -right-4">
+                            <FaCheck className="text-2xl text-[#FBC146]"></FaCheck>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-[#9BD3D0] border border-gray-900 p-4 w-60 rounded-t-full absolute top-0 left-28">
+                    <div className="bg-[#E6B8A4] border border-gray-900 pt-5 px-5 rounded-t-full">
+                        <img src={YellowTShirtLady} alt="" />
+                    </div>
+                </div>
+                <div className="absolute flex text-6xl bottom-0 left-32">
+                    <WiDirectionLeft></WiDirectionLeft>
+                    <WiDirectionLeft></WiDirectionLeft>
+                </div>
+            </div>
         </div>
     );
 };
