@@ -3,48 +3,47 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-    const { createUser, updateUser } = useContext(AuthContext);
-    const axiosPublic = useAxiosPublic();
+    const { logInUser, googleLogIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const {
         register,
         handleSubmit,
-        // reset,
+        reset,
         formState: { errors },
     } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
-        createUser(data.email, data.password).then((result) => {
-            const user = result.user;
+        logInUser(data.email, data.password).then((res) => {
+            const user = res.user;
             console.log(user);
-            updateUser(data.name, data.photoURL)
-                .then(() => {
-                    const userInfo = {
-                        userName: data.name,
-                        userEmail: data.email,
-                        role: "user",
-                    };
-                    axiosPublic.post("/users", userInfo).then((res) => {
-                        if (res.data.insertedId) {
-                            console.log("user added to the database");
-                            // reset();
-                            Swal.fire({
-                                title: "Success",
-                                text: "Signed Up Successfully",
-                                icon: "success",
-                            });
-                            navigate("/");
-                        }
-                    });
-                })
-                .catch((error) => {
-                    console.log(error);
+            if (user) {
+                reset();
+                Swal.fire({
+                    title: "Success",
+                    text: "Logged In Successfully",
+                    icon: "success",
                 });
+                navigate("/");
+            }
+        });
+    };
+
+    const handleGoogleLogIn = () => {
+        googleLogIn().then((res) => {
+            const user = res.user;
+            if (user) {
+                Swal.fire({
+                    title: "Success",
+                    text: "Logged In Successfully",
+                    icon: "success",
+                });
+                navigate("/");
+            }
         });
     };
 
@@ -81,7 +80,7 @@ const Login = () => {
                     exciting prizes!
                 </p>
             </div>
-            <div className="lg:w-2/5 p-3 lg:p-10 flex py-10 items-center">
+            <div className="lg:w-2/5 p-3 lg:p-10 flex flex-col py-10 justify-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="form-control">
                         <label className="label">
@@ -141,23 +140,31 @@ const Login = () => {
                     </div>
                     <div className="form-control mt-6">
                         <input
-                            className="btn bg-[#9BD3D0] rounded-full text-white border-0 font-bold"
+                            className="btn bg-[#9BD3D0] hover:bg-[#76A19E] rounded-full text-white border-0 font-bold"
                             type="submit"
                             value="Log In"
                         />
                     </div>
-                    <div className="text-center mt-5">
-                        <p>
-                            New Here? Please{" "}
-                            <Link
-                                className="text-[#9BD3D0] duration-300 hover:underline"
-                                to="/sign-up"
-                            >
-                                Sign Up
-                            </Link>
-                        </p>
-                    </div>
                 </form>
+                <div className="divider">Or,</div>
+                <button
+                    onClick={handleGoogleLogIn}
+                    className="flex items-center btn bg-transparent rounded-full w-full border-2 hover:bg-[#9BD3D0] hover:border-0 hover:text-white border-[#9BD3D0]"
+                >
+                    <FcGoogle className="text-lg"></FcGoogle> Continue With
+                    Google
+                </button>
+                <div className="text-center mt-5">
+                    <p>
+                        New Here? Please{" "}
+                        <Link
+                            className="text-[#9BD3D0] duration-300 hover:underline"
+                            to="/sign-up"
+                        >
+                            Sign Up
+                        </Link>
+                    </p>
+                </div>
             </div>
         </div>
     );
