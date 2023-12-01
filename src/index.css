@@ -11,3 +11,7 @@ body {
 .active {
     @apply border-2 border-gray-500 rounded-full;
 }
+
+.custom-shadow{
+    box-shadow: 10px 10px 0px #9BD3D0;
+}
