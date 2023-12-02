@@ -78,10 +78,8 @@ export default function ContestWinner() {
         return <span className="loading loading-infinity loading-lg"></span>;
     }
 
-    console.log(winners);
-
     return (
-        <div className="flex justify-center gap-32 items-center mt-10 mb-20">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-5 md:gap-32 mt-5 md:mt-16 mb-14 md:mb-24">
             <div className="wrapper">
                 <div className="scene">
                     <div className="carousel keen-slider" ref={sliderRef}>
@@ -92,15 +90,21 @@ export default function ContestWinner() {
                                     index + 1
                                 } w-full`}
                             >
-                                <img src={winner.winnerImage} alt="" />
+                                <img
+                                    className="border-[15px] border-[#9BD3D0] shadow-sm shadow-[#E6B8A4]"
+                                    src={winner.winnerImage}
+                                    alt=""
+                                />
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="w-1/3">
-                <h3>See Our Winners</h3>
-                <p>
+            <div className="md:w-1/3 space-y-2 text-center md:text-left">
+                <h3 className="text-xl md:text-4xl font-bold">
+                    See Our Winners
+                </h3>
+                <p className="text-sm">
                     Kudos to our recent contest winners! Now, it's YOUR turn to
                     shine. Join our contests, showcase your creativity, and be
                     the next star in our "Contest Winners" section. Unleash your
