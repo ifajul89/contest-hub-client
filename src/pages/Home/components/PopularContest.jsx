@@ -22,7 +22,7 @@ const PopularContest = () => {
     return (
         <div className="bg-white">
             <div className="container mx-auto py-5 md:py-10">
-                <div className="flex items-end justify-center gap-5 pb-7">
+                <div className="flex items-end justify-center gap-5 md:pb-7">
                     <div className="text-center space-y-2 py-3">
                         <h3 className="text-lg md:text-3xl font-bold">Our Popular Contests</h3>
                         <p className="text-xs md:text-base">
