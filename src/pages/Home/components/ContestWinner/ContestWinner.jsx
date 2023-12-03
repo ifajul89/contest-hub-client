@@ -75,7 +75,11 @@ export default function ContestWinner() {
     });
 
     if (isPending) {
-        return <span className="loading loading-infinity loading-lg"></span>;
+        return (
+            <div className="w-full h-20 flex justify-center items-center">
+                <span className="loading loading-infinity loading-lg"></span>;
+            </div>
+        );
     }
 
     return (
