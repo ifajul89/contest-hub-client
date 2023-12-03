@@ -21,7 +21,9 @@ const Home = () => {
             <Header></Header>
             <PopularContest></PopularContest>
             <ContestWinner></ContestWinner>
-            {!isLoading && <BestContestCreator creators={creators}></BestContestCreator>}
+            {!isLoading && (
+                <BestContestCreator creators={creators}></BestContestCreator>
+            )}
         </div>
     );
 };
