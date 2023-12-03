@@ -5,10 +5,19 @@ import "./BestContestCreator.css";
 import { FaFacebook } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
+import { HiMiniArrowTrendingDown } from "react-icons/hi2";
 
 export default function BestContestCreator({ creators }) {
     return (
-        <div className="">
+        <div className="bg-[#FBC146]">
+            <div className="flex items-end justify-center gap-5 pt-2 md:py-2 container mx-auto text-white">
+                <div className="text-center md:py-3">
+                    <h3 className="text-lg md:text-4xl font-bold underline">
+                        Best Contest Creator
+                    </h3>
+                </div>
+                <HiMiniArrowTrendingDown className="hidden md:inline-block text-5xl" />
+            </div>
             {creators.map((creator, index) => (
                 <div
                     key={creator._id}
