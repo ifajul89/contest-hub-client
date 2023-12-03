@@ -1,33 +1,53 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
-import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./BestContestCreator.css";
-import React from "react";
+import { FaFacebook } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 
 export default function BestContestCreator({ creators }) {
-    const [opacities, setOpacities] = React.useState([]);
-
-    const [sliderRef] = useKeenSlider({
-        slides: creators.length,
-        loop: true,
-        detailsChanged(s) {
-            const new_opacities = s.track.details.slides.map(
-                (slide) => slide.portion
-            );
-            setOpacities(new_opacities);
-        },
-    });
-
     return (
-        <div ref={sliderRef} className="fader">
-            {creators.map((creators, idx) => (
+        <div className="">
+            {creators.map((creator, index) => (
                 <div
-                    key={creators._id}
-                    className="fader__slide flex"
-                    style={{ opacity: opacities[idx] }}
+                    key={creator._id}
+                    className={`flex pt-5 ${
+                        index === 1 && "flex-row-reverse"
+                    } w-full items-center justify-center gap-10 ${
+                        index === 0 && "bg-[#FBC146]"
+                    } ${index === 1 && "bg-[#9BD3D0]"} ${
+                        index === 2 && "bg-[#E6B8A4]"
+                    }`}
                 >
-                    <div></div>
-                    <img src={creators.creatorImage} />
+                    <div
+                        className={`w-2/5 space-y-3 ${
+                            index === 1 ? "text-left" : "text-right"
+                        }`}
+                    >
+                        <h3 className="text-3xl font-bold text-white">
+                            "{creator.creatorName}"
+                        </h3>
+                        <p className="text-white font-medium text-xl">
+                            <b>Contest Name: </b>
+                            {creator.contestName}
+                        </p>
+                        <p className="text-white font-medium">
+                            "{creator.shortDescription}"
+                        </p>
+                        <div
+                            className={`flex text-white text-3xl gap-2 ${
+                                index === 1 ? "justify-start" : "justify-end"
+                            }`}
+                        >
+                            <FaFacebook />
+                            <BsTwitterX></BsTwitterX>
+                            <BsInstagram></BsInstagram>
+                        </div>
+                    </div>
+                    <div className="">
+                        <img src={creator.creatorImage} alt="Creator Image" />
+                    </div>
                 </div>
             ))}
         </div>
