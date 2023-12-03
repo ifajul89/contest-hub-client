@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { TbUsersGroup } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const SingleContest = ({ contest }) => {
-    const { contestImage, contestName, participantsCount, shortDescription } =
-        contest;
+    const {
+        _id,
+        contestImage,
+        contestName,
+        participantsCount,
+        shortDescription,
+    } = contest;
 
     const [showFullContent, setShowFullContent] = useState(false);
 
@@ -33,9 +39,12 @@ const SingleContest = ({ contest }) => {
                         {showFullContent ? "Show Less" : "...Read More"}
                     </button>{" "}
                 </p>
-                <button className="bg-[#E6B8A4] text-xs sm:text-base btn btn-sm rounded-full border-none hover:bg-[#B38F7F] text-white font-bold">
+                <Link
+                    to={`/contest-details-page/${_id}`}
+                    className="bg-[#E6B8A4] text-xs sm:text-base btn btn-sm rounded-full border-none hover:bg-[#B38F7F] text-white font-bold"
+                >
                     Details
-                </button>
+                </Link>
             </div>
         </div>
     );
