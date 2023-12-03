@@ -43,7 +43,7 @@ export default function ContestWinner() {
                     if (mouseOver) return;
                     timeout = setTimeout(() => {
                         slider.next();
-                    }, 4000);
+                    }, 3000);
                 }
                 slider.on("created", () => {
                     slider.container.addEventListener("mouseover", () => {
@@ -91,9 +91,13 @@ export default function ContestWinner() {
                                 } w-full`}
                             >
                                 <img
-                                    className="border-[15px] border-[#9BD3D0] shadow-sm shadow-[#E6B8A4]"
+                                    className={`border-[15px] ${
+                                        index === 1 && "border-[#9BD3D0]"
+                                    } ${index === 2 && "border-[#E6B8A4]"} ${
+                                        index === 3 && "border-[#FBC146]"
+                                    }`}
                                     src={winner.winnerImage}
-                                    alt=""
+                                    alt="Winner Image"
                                 />
                             </div>
                         ))}

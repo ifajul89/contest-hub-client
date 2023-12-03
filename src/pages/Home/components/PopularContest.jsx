@@ -37,7 +37,7 @@ const PopularContest = () => {
                 <div className="flex justify-center flex-wrap gap-5 md:gap-10">
                     {contests.map((contest) => (
                         <PopularSingleContest
-                            key={contest.key}
+                            key={contest._id}
                             contest={contest}
                         ></PopularSingleContest>
                     ))}

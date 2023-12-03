@@ -1,30 +1,15 @@
 [
     {
-        "contestName": "Nature Photography Contest",
-        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
-        "participantsCount": 85,
-        "shortDescription": "Capture the beauty of nature in your photographs and compete for the title of the best nature photographer.",
-        "winnerName": "Alice Johnson",
-        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Professional DSLR Camera"
-    },
-    {
-        "contestName": "Cooking Challenge",
-        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
-        "participantsCount": 60,
-        "shortDescription": "Show off your culinary skills by participating in our cooking challenge. Impress the judges with your unique recipes and flavors.",
-        "winnerName": "John Smith",
-        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Cooking Masterclass with a Celebrity Chef"
-    },
-    {
         "contestName": "Fitness Challenge",
         "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
         "participantsCount": 120,
         "shortDescription": "Join our fitness challenge to test your endurance and strength. Achieve fitness milestones and win exclusive fitness gear.",
         "winnerName": "Emily Davis",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Yearly Gym Membership"
+        "prize": "Yearly Gym Membership",
+        "colorCode": "yellow",
+        "creatorName": "Olivia Martin",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     },
     {
         "contestName": "Digital Art Showdown",
@@ -33,7 +18,10 @@
         "shortDescription": "Unleash your creativity in our digital art showdown. Create stunning digital artworks and compete for recognition in the art community.",
         "winnerName": "David Turner",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "High-End Graphics Tablet"
+        "prize": "High-End Graphics Tablet",
+        "colorCode": "pink",
+        "creatorName": "Sophie Turner",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     },
     {
         "contestName": "Music Talent Hunt",
@@ -42,7 +30,10 @@
         "shortDescription": "Are you a talented musician? Join our music talent hunt and showcase your musical abilities. Win a chance to perform live at a music festival.",
         "winnerName": "Sophie Rodriguez",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Recording Studio Session"
+        "prize": "Recording Studio Session",
+        "colorCode": "blue",
+        "creatorName": "Maxwell Thompson",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     },
     {
         "contestName": "Travel Photography Challenge",
@@ -51,7 +42,10 @@
         "shortDescription": "Explore the world through your lens. Submit your best travel photos and win exciting travel vouchers.",
         "winnerName": "Daniel Miller",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "All-Inclusive Vacation Package"
+        "prize": "All-Inclusive Vacation Package",
+        "colorCode": "yellow",
+        "creatorName": "Isabella Miller",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     },
     {
         "contestName": "Coding Clash",
@@ -60,7 +54,10 @@
         "shortDescription": "Compete in a coding battle. Solve challenging problems and showcase your programming skills.",
         "winnerName": "Alexandra Brown",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Brand New Laptop"
+        "prize": "Brand New Laptop",
+        "colorCode": "pink",
+        "creatorName": "Christopher Brown",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     },
     {
         "contestName": "Artistic Makeup Challenge",
@@ -69,24 +66,81 @@
         "shortDescription": "Transform faces into art. Participate in our makeup challenge and win a professional makeup kit.",
         "winnerName": "Michael Thompson",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Makeup Artist Masterclass"
+        "prize": "Makeup Artist Masterclass",
+        "colorCode": "blue",
+        "creatorName": "Victoria Thompson",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     },
     {
-        "contestName": "Science Fiction Writing Contest",
-        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
-        "participantsCount": 90,
-        "shortDescription": "Create futuristic worlds and compelling stories. Win recognition as the best science fiction writer.",
-        "winnerName": "Olivia White",
-        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Publishing Deal for Winning Book"
-    },
-    {
-        "contestName": "Dance Off",
+        "contestName": "Fitness Challenge",
         "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
         "participantsCount": 120,
-        "shortDescription": "Showcase your dance moves in our virtual dance-off. Groove to the beats and win dance studio sessions.",
-        "winnerName": "William Garcia",
+        "shortDescription": "Join our fitness challenge to test your endurance and strength. Achieve fitness milestones and win exclusive fitness gear.",
+        "winnerName": "Emily Davis",
         "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
-        "prize": "Year of Free Dance Classes"
+        "prize": "Yearly Gym Membership",
+        "colorCode": "yellow",
+        "creatorName": "Olivia Martin",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
+    },
+    {
+        "contestName": "Digital Art Showdown",
+        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
+        "participantsCount": 95,
+        "shortDescription": "Unleash your creativity in our digital art showdown. Create stunning digital artworks and compete for recognition in the art community.",
+        "winnerName": "David Turner",
+        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
+        "prize": "High-End Graphics Tablet",
+        "colorCode": "pink",
+        "creatorName": "Sophie Turner",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
+    },
+    {
+        "contestName": "Music Talent Hunt",
+        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
+        "participantsCount": 150,
+        "shortDescription": "Are you a talented musician? Join our music talent hunt and showcase your musical abilities. Win a chance to perform live at a music festival.",
+        "winnerName": "Sophie Rodriguez",
+        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
+        "prize": "Recording Studio Session",
+        "colorCode": "blue",
+        "creatorName": "Maxwell Thompson",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
+    },
+    {
+        "contestName": "Travel Photography Challenge",
+        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
+        "participantsCount": 110,
+        "shortDescription": "Explore the world through your lens. Submit your best travel photos and win exciting travel vouchers.",
+        "winnerName": "Daniel Miller",
+        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
+        "prize": "All-Inclusive Vacation Package",
+        "colorCode": "yellow",
+        "creatorName": "Isabella Miller",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
+    },
+    {
+        "contestName": "Coding Clash",
+        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
+        "participantsCount": 200,
+        "shortDescription": "Compete in a coding battle. Solve challenging problems and showcase your programming skills.",
+        "winnerName": "Alexandra Brown",
+        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
+        "prize": "Brand New Laptop",
+        "colorCode": "pink",
+        "creatorName": "Christopher Brown",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
+    },
+    {
+        "contestName": "Artistic Makeup Challenge",
+        "contestImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouselabs.ca%2Fuploads%2Fpost%2Fopen_graph_image%2F271%2F33443603251_85e9a5f1d4_h.jpg&f=1&nofb=1&ipt=bb59ad5760acc3c91836a9dff0e5003041a5c1a09984fddd79db3819c164b56a&ipo=images",
+        "participantsCount": 75,
+        "shortDescription": "Transform faces into art. Participate in our makeup challenge and win a professional makeup kit.",
+        "winnerName": "Michael Thompson",
+        "winnerImage": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=b3fcd716dee118fbe386b5a313741811325942f8b1a7901174c6ce6fd19e81e0&ipo=images",
+        "prize": "Makeup Artist Masterclass",
+        "colorCode": "blue",
+        "creatorName": "Victoria Thompson",
+        "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png"
     }
 ]
