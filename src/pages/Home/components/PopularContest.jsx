@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import PopularSingleContest from "./PopularSingleContest";
+import SingleContest from "./SingleContest";
 import { HiMiniArrowTrendingDown } from "react-icons/hi2";
 
 const PopularContest = () => {
@@ -41,10 +41,10 @@ const PopularContest = () => {
                 </div>
                 <div className="flex justify-center flex-wrap gap-5 md:gap-10">
                     {contests.map((contest) => (
-                        <PopularSingleContest
+                        <SingleContest
                             key={contest._id}
                             contest={contest}
-                        ></PopularSingleContest>
+                        ></SingleContest>
                     ))}
                 </div>
             </div>

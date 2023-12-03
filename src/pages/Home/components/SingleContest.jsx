@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { TbUsersGroup } from "react-icons/tb";
 
-const PopularSingleContest = ({ contest }) => {
+const SingleContest = ({ contest }) => {
     const { contestImage, contestName, participantsCount, shortDescription } =
         contest;
 
@@ -41,4 +41,4 @@ const PopularSingleContest = ({ contest }) => {
     );
 };
 
-export default PopularSingleContest;
+export default SingleContest;
