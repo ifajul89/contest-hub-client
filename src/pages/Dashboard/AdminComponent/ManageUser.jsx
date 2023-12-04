@@ -1,11 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
     const axiosSecure = useAxiosSecure();
 
-    const { data: users, isPending } = useQuery({
+    const {
+        data: users,
+        isPending,
+        refetch,
+    } = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
             const res = await axiosSecure.get("/users");
@@ -20,6 +25,27 @@ const ManageUser = () => {
             </div>
         );
     }
+
+    const handleDeleteItem = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/users/${id}`).then((res) => {
+                    console.log(res.data);
+                    if (res.data.deletedCount > 0) {
+                        refetch();
+                    }
+                });
+            }
+        });
+    };
 
     return (
         <div className="p-5">
@@ -63,7 +89,12 @@ const ManageUser = () => {
                                         <p>{user.role}</p>
                                     </td>
                                     <th>
-                                        <button className="btn btn-ghost">
+                                        <button
+                                            onClick={() =>
+                                                handleDeleteItem(user._id)
+                                            }
+                                            className="btn btn-ghost"
+                                        >
                                             <FaRegTrashAlt className="text-lg text-red-600"></FaRegTrashAlt>
                                         </button>
                                     </th>
