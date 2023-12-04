@@ -72,7 +72,7 @@ const Navbar = () => {
                                     {user?.displayName}
                                 </li>
                                 <Link
-                                    to="/dashboard"
+                                    to="/dashboard/home"
                                     className="btn btn-sm w-full"
                                 >
                                     Dashboard
