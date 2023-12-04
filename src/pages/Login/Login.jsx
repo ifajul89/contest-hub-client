@@ -5,9 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
     const { logInUser, googleLogIn } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const {
         register,
@@ -37,12 +39,24 @@ const Login = () => {
         googleLogIn().then((res) => {
             const user = res.user;
             if (user) {
-                Swal.fire({
-                    title: "Success",
-                    text: "Logged In Successfully",
-                    icon: "success",
+                const userInfo = {
+                    userName: user.displayName,
+                    userEmail: user.email,
+                    userImage: user.photoURL,
+                    role: "user",
+                };
+
+                axiosPublic.post("/users", userInfo).then((res) => {
+                    console.log(res.data);
+                //     if (res.data.insertedId) {
+                //         Swal.fire({
+                //             title: "Success",
+                //             text: "Logged In Successfully",
+                //             icon: "success",
+                //         });
+                //         navigate("/");
+                //     }
                 });
-                navigate("/");
             }
         });
     };
