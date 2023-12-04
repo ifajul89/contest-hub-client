@@ -45,6 +45,9 @@ const Dashboard = () => {
                         </h3>
                     </li>
                     <li>
+                        <NavLink to="/dashboard/home">Home</NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/dashboard/add-contest">
                             Add A Contest
                         </NavLink>
@@ -69,19 +72,18 @@ const Dashboard = () => {
                         </h3>
                     </li>
                     <li>
+                        <NavLink to="/dashboard/home">Home</NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/dashboard/my-participated">
                             My Participated
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/my-winning">
-                            My Winning
-                        </NavLink>
+                        <NavLink to="/dashboard/my-winning">My Winning</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/my-profile">
-                            My Profile
-                        </NavLink>
+                        <NavLink to="/dashboard/my-profile">My Profile</NavLink>
                     </li>
                 </>
             )}
@@ -94,7 +96,13 @@ const Dashboard = () => {
     return (
         <div className="flex">
             <div className="absolute z-50 md:relative">
-                <ul className="menu hidden md:block p-4 w-60 min-h-screen h-full bg-[#9BD3D0]">
+                <ul
+                    className={`menu hidden md:block p-4 w-60 min-h-screen h-full ${
+                        userRole.role === "admin" && "bg-[#9BD3D0]"
+                    } ${userRole.role === "creator" && "bg-[#FBC146]"} ${
+                        userRole.role === "user" && "bg-[#E6B8A4]"
+                    }`}
+                >
                     {navItems}
                 </ul>
                 <div className="drawer md:hidden">
