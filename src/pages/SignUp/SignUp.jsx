@@ -18,16 +18,18 @@ const SignUp = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
         createUser(data.email, data.password).then(() => {
             updateUser(data.name, data.photoURL)
                 .then(() => {
                     const userInfo = {
                         userName: data.name,
                         userEmail: data.email,
+                        userImage: data.photoURL,
                         role: "user",
                     };
+                    console.log(userInfo);
                     axiosPublic.post("/users", userInfo).then((res) => {
+                        console.log(res.data)
                         if (res.data.insertedId) {
                             reset();
                             Swal.fire({

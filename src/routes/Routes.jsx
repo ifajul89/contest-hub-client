@@ -7,6 +7,11 @@ import SignUp from "../pages/SignUp/SignUp";
 import AllContest from "../pages/AllContest/AllContest";
 import ContestDetails from "../pages/ContestDetails/ContestDetails";
 import PurchasePage from "../pages/PurchasePage/PurchasePage";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import ManageContests from "../pages/Dashboard/AdminComponent/ManageContests";
+import ManageUser from "../pages/Dashboard/AdminComponent/ManageUser";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
     {
@@ -38,9 +43,31 @@ const router = createBrowserRouter([
             },
             {
                 path: "/purchase/:id",
-                element: <PurchasePage></PurchasePage>,
+                element: (
+                    <PrivateRoute>
+                        <PurchasePage></PurchasePage>
+                    </PrivateRoute>
+                ),
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/contests/${params.id}`),
+            },
+        ],
+    },
+    {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: "home",
+                element: <DashboardHome></DashboardHome>,
+            },
+            {
+                path: "manage-user",
+                element: <ManageUser></ManageUser>,
+            },
+            {
+                path: "manage-contest",
+                element: <ManageContests></ManageContests>,
             },
         ],
     },
