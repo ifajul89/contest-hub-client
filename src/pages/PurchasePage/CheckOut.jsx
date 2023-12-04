@@ -79,8 +79,9 @@ const CheckOut = ({ contestDetail }) => {
 
     return (
         <div className="container mx-auto">
-            <form onSubmit={handleSubmit}>
+            <form className="flex" onSubmit={handleSubmit}>
                 <CardElement
+                    className="border-2 p-3 rounded-xl w-full gap-10"
                     options={{
                         style: {
                             base: {
@@ -98,11 +99,11 @@ const CheckOut = ({ contestDetail }) => {
                 />
                 <p className="text-red-600 py-1">{error}</p>
                 <button
-                    className="btn"
+                    className="btn bg-[#FBC146]"
                     type="submit"
                     disabled={!stripe || !clientSecret}
                 >
-                    Pay
+                    Register
                 </button>
             </form>
         </div>
