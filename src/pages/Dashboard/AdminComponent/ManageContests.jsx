@@ -28,6 +28,7 @@ const ManageContests = () => {
         );
     }
 
+
     const handleDeleteItem = (id) => {
         Swal.fire({
             title: "Are you sure?",
