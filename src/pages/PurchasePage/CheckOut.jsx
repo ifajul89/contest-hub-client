@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const CheckOut = ({ contestDetail }) => {
     const stripe = useStripe();
     const [error, setError] = useState("");
     const [clientSecret, setClientSecret] = useState("");
     const elements = useElements();
+    const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
     const {
         // _id,
@@ -21,14 +23,11 @@ const CheckOut = ({ contestDetail }) => {
         // colorCode,
     } = contestDetail;
 
-    console.log(parcitipationFee);
-
     useEffect(() => {
         axiosSecure
             .post("/create-payment-intent", { fee: parcitipationFee })
             .then((res) => {
-                console.log(res.data.clientSecret.client_secret);
-                setClientSecret(res.data.clientSecret.client_secret);
+                setClientSecret(res.data.clientSecret);
             });
     }, [axiosSecure, parcitipationFee]);
 
@@ -56,6 +55,25 @@ const CheckOut = ({ contestDetail }) => {
         } else {
             console.log("Payment Method", paymentMethod);
             setError("");
+        }
+
+        console.log(clientSecret);
+
+        const { paymentIntent, error: confirmError } =
+            await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || "anonymous",
+                        name: user?.displayName || "anonymous",
+                    },
+                },
+            });
+
+        if (confirmError) {
+            console.log("Confirm Error", confirmError);
+        } else {
+            console.log(paymentIntent);
         }
     };
 
