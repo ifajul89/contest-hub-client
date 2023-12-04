@@ -1,21 +1,90 @@
 import { TiThMenu } from "react-icons/ti";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import useUserRole from "../../hooks/useUserRole";
 
 const Dashboard = () => {
+    const [userRole, userRoleLoading] = useUserRole();
+
+    if (userRoleLoading) {
+        return (
+            <div className="w-full h-20 flex justify-center items-center">
+                <span className="loading loading-infinity loading-lg"></span>
+            </div>
+        );
+    }
+
     const navItems = (
         <>
-            <li>
-                <h3 className="font-bold text-xl underline">Admin Penal</h3>
-            </li>
-            <li>
-                <NavLink to="/dashboard/home">Home</NavLink>
-            </li>
-            <li>
-                <NavLink to="/dashboard/manage-user">Manage User</NavLink>
-            </li>
-            <li>
-                <NavLink to="/dashboard/manage-contest">Manage Contest</NavLink>
-            </li>
+            {userRole.role === "admin" && (
+                <>
+                    <li>
+                        <h3 className="font-bold text-xl underline">
+                            Admin Penal
+                        </h3>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/home">Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/manage-user">
+                            Manage User
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/manage-contest">
+                            Manage Contest
+                        </NavLink>
+                    </li>
+                </>
+            )}
+            {userRole.role === "creator" && (
+                <>
+                    <li>
+                        <h3 className="font-bold text-xl underline">
+                            Creator Penal
+                        </h3>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/add-contest">
+                            Add A Contest
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/my-created-contest">
+                            My Created Contest
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/contest-submitted">
+                            Contest Submitted
+                        </NavLink>
+                    </li>
+                </>
+            )}
+            {userRole.role == "user" && (
+                <>
+                    <li>
+                        <h3 className="font-bold text-xl underline">
+                            User Penal
+                        </h3>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/my-participated">
+                            My Participated
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/my-winning">
+                            My Winning
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/my-profile">
+                            My Profile
+                        </NavLink>
+                    </li>
+                </>
+            )}
             <li>
                 <NavLink to="/">Web Home</NavLink>
             </li>
