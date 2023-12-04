@@ -38,7 +38,6 @@ const ManageUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/users/${id}`).then((res) => {
-                    console.log(res.data);
                     if (res.data.deletedCount > 0) {
                         refetch();
                     }
@@ -67,7 +66,7 @@ const ManageUser = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map((user) => (
+                            {users?.map((user) => (
                                 <tr key={user._id}>
                                     <td>
                                         <div className="avatar">
