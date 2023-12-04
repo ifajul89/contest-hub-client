@@ -11,17 +11,7 @@ const CheckOut = ({ contestDetail }) => {
     const elements = useElements();
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const {
-        // _id,
-        // contestName,
-        // contestImage,
-        parcitipationFee,
-        // participantsCount,
-        // shortDescription,
-        // winnerName,
-        // winnerImage,
-        // colorCode,
-    } = contestDetail;
+    const { parcitipationFee } = contestDetail;
 
     useEffect(() => {
         axiosSecure
@@ -79,7 +69,7 @@ const CheckOut = ({ contestDetail }) => {
 
     return (
         <div className="container mx-auto">
-            <form className="flex" onSubmit={handleSubmit}>
+            <form className="flex flex-col md:flex-row" onSubmit={handleSubmit}>
                 <CardElement
                     className="border-2 p-3 rounded-xl w-full gap-10"
                     options={{

@@ -11,15 +11,15 @@ const PurchasePage = () => {
 
     return (
         <div className="container mx-auto ">
-            <div className="border-[3px] w-1/2 mx-auto my-10 border-gray-600 p-5 rounded-2xl">
+            <div className="border-[3px] md:w-1/2 mx-auto my-5 md:my-10 border-gray-600 p-5 rounded-2xl">
                 <div className="pb-5 space-y-3">
                     <img
                         className="rounded-lg font-bold"
                         src={contestImage}
                         alt=""
                     />
-                    <h3 className="text-3xl">{contestName}</h3>
-                    <h3 className="text-2xl">
+                    <h3 className="text-xl md:text-3xl font-bold">{contestName}</h3>
+                    <h3 className="text-lg md:text-2xl">
                         Participation Fee : <b>${parcitipationFee}</b>{" "}
                     </h3>
                 </div>
