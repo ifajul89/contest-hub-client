@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const ManageUser = () => {
     const axiosSecure = useAxiosSecure();
@@ -22,7 +23,7 @@ const ManageUser = () => {
 
     return (
         <div className="p-5">
-            <div className="flex justify-center text-2xl gap-10">
+            <div className="flex justify-center text-2xl gap-10 pb-10">
                 <h3>Manage Users</h3>
                 <h3>Total Users: {users?.length}</h3>
             </div>
@@ -53,16 +54,17 @@ const ManageUser = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        Zemlak, Daniel and Leannon
-                                        <br />
-                                        <span className="badge badge-ghost badge-sm">
-                                            Desktop Support Technician
-                                        </span>
+                                        <p>{user.userName}</p>
                                     </td>
-                                    <td>Purple</td>
+                                    <td>
+                                        <p>{user.userEmail}</p>
+                                    </td>
+                                    <td>
+                                        <p>{user.role}</p>
+                                    </td>
                                     <th>
-                                        <button className="btn btn-ghost btn-xs">
-                                            details
+                                        <button className="btn btn-ghost">
+                                            <FaRegTrashAlt className="text-lg text-red-600"></FaRegTrashAlt>
                                         </button>
                                     </th>
                                 </tr>
