@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import AllContest from "../pages/AllContest/AllContest";
 import ContestDetails from "../pages/ContestDetails/ContestDetails";
+import PurchasePage from "../pages/PurchasePage/PurchasePage";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,12 @@ const router = createBrowserRouter([
             {
                 path: "/contest-details-page/:id",
                 element: <ContestDetails></ContestDetails>,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/contests/${params.id}`),
+            },
+            {
+                path: "/purchase/:id",
+                element: <PurchasePage></PurchasePage>,
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/contests/${params.id}`),
             },

@@ -18,7 +18,7 @@ const PopularContest = () => {
     if (isPending) {
         return (
             <div className="w-full h-20 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>;
+                <span className="loading loading-infinity loading-lg"></span>
             </div>
         );
     }

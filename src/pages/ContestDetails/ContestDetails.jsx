@@ -1,8 +1,9 @@
 import { TbUsersGroup } from "react-icons/tb";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ContestDetails = () => {
     const {
+        _id,
         contestName,
         contestImage,
         participantsCount,
@@ -28,7 +29,9 @@ const ContestDetails = () => {
                     />
                 </div>
                 <div className="md:w-1/3 space-y-2 md:space-y-4">
-                    <h2 className="text-2xl md:text-4xl font-bold">{contestName}</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold">
+                        {contestName}
+                    </h2>
                     <h3 className="flex items-center gap-2 text-lg md:text-2xl">
                         <TbUsersGroup /> Attempted Count: {participantsCount}
                     </h3>
@@ -41,13 +44,18 @@ const ContestDetails = () => {
                                 src={winnerImage}
                                 alt=""
                             />
-                            <h3 className="md:text-xl font-bold">{winnerName}</h3>
+                            <h3 className="md:text-xl font-bold">
+                                {winnerName}
+                            </h3>
                         </span>
                     </div>
                     <p>{/* Dynamic Timer */}</p>
-                    <button className="btn w-full rounded-full text-white border-none bg-gray-900 hover:bg-black">
+                    <Link
+                        to={`/purchase/${_id}`}
+                        className="btn w-full rounded-full text-white border-none bg-gray-900 hover:bg-black"
+                    >
                         Registration
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
