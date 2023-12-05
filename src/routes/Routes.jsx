@@ -39,7 +39,7 @@ const router = createBrowserRouter([
                 path: "/contest-details-page/:id",
                 element: <ContestDetails></ContestDetails>,
                 loader: ({ params }) =>
-                    fetch(`b8a12-server-side-bluebird089.vercel.app/contests/${params.id}`),
+                    fetch(`https://b8a12-server-side-bluebird089.vercel.app/contests/${params.id}`),
             },
             {
                 path: "/purchase/:id",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`b8a12-server-side-bluebird089.vercel.app/contests/${params.id}`),
+                    fetch(`https://b8a12-server-side-bluebird089.vercel.app/contests/${params.id}`),
             },
         ],
     },
