@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecure = axios.create({
-    baseURL: "https://b8a12-server-side-bluebird089.vercel.app",
+    baseURL: "http://localhost:5000",
 });
 
 const useAxiosSecure = () => {

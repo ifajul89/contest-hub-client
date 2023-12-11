@@ -48,14 +48,14 @@ const Login = () => {
 
                 axiosPublic.post("/users", userInfo).then((res) => {
                     console.log(res.data);
-                //     if (res.data.insertedId) {
-                //         Swal.fire({
-                //             title: "Success",
-                //             text: "Logged In Successfully",
-                //             icon: "success",
-                //         });
-                //         navigate("/");
-                //     }
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            title: "Success",
+                            text: "Logged In Successfully",
+                            icon: "success",
+                        });
+                        navigate("/");
+                    }
                 });
             }
         });

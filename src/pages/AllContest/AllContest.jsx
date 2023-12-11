@@ -5,6 +5,8 @@ import SingleContest from "../Home/components/SingleContest";
 const AllContest = () => {
     const axiosPublic = useAxiosPublic();
 
+    
+
     const { data: allContests, isPending } = useQuery({
         queryKey: ["allContests"],
         queryFn: async () => {
