@@ -4,14 +4,11 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import SingleContest from "./SingleContest";
 
 const SearchedContests = ({ search }) => {
-    console.log(search);
     const axiosPublic = useAxiosPublic();
     const { data: searchedContest, isPending } = useQuery({
         queryKey: ["searchedContest", search],
         queryFn: async () => {
-            const res = await axiosPublic.get(
-                `/searched-contests?search=${search}`
-            );
+            const res = await axiosPublic.get(`/contests?search=${search}`);
             return res.data;
         },
     });
@@ -39,7 +36,7 @@ const SearchedContests = ({ search }) => {
                 </div>
                 <div className="flex justify-center flex-wrap gap-5 md:gap-10">
                     {searchedContest.length === 0 && (
-                        <h3 className="font-normal md:text-xl md:mb-10">
+                        <h3 className="font-normal text-gray-500 md:text-xl md:mb-10">
                             <i>Sorry Nothing Was Found</i>
                         </h3>
                     )}
