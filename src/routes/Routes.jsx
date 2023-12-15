@@ -12,6 +12,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import ManageContests from "../pages/Dashboard/AdminComponent/ManageContests";
 import ManageUser from "../pages/Dashboard/AdminComponent/ManageUser";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
+import AddContest from "../pages/Dashboard/CreatorComponent/AddContest";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path: "manage-contest",
                 element: <ManageContests></ManageContests>,
+            },
+            {
+                path: "add-contest",
+                element: <AddContest></AddContest>,
             },
         ],
     },

@@ -53,7 +53,7 @@ const Header = () => {
                                 type="text"
                             />
                             <input
-                                className="btn rounded-l-none bg-[#FBC146] font-bold"
+                                className="btn rounded-l-none bg-[#FBC146] hover:bg-[#dba93d] font-bold"
                                 type="submit"
                                 value="Search"
                             />
