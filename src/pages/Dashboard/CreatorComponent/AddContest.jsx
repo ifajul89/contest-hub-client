@@ -191,7 +191,7 @@ const AddContest = () => {
                         onChange={handleSelectChange}
                         className="select select-bordered rounded-full"
                     >
-                        <option value="" disabled>
+                        <option disabled selected>
                             Select Contest Tag
                         </option>
                         <option value="Business Contest">
