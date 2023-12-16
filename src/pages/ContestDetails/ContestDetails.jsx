@@ -70,7 +70,7 @@ const ContestDetails = () => {
     ]);
 
     const handleTimerEnd = () => {
-        setTimesUp(true);
+        setTimesUp(false);
     };
 
     return (
@@ -95,7 +95,7 @@ const ContestDetails = () => {
                         <TbUsersGroup /> Attempted Count: {participantsCount}
                     </h3>
                     <h4 className="text-sm md:text-base">{shortDescription}</h4>
-                    {timesUp === false ? (
+                    {timesUp === true ? (
                         <>
                             <h3 className="text-xl md:text-2xl font-extrabold">
                                 Times Left :
@@ -136,13 +136,21 @@ const ContestDetails = () => {
                             </span>
                         </div>
                     )}
-
-                    <Link
-                        to={`/purchase/${_id}`}
-                        className="btn w-full rounded-full text-white border-none bg-gray-900 hover:bg-black"
-                    >
-                        Registration
-                    </Link>
+                    {timesUp === true ? (
+                        <Link
+                            to={`/purchase/${_id}`}
+                            className="btn w-full rounded-full text-white border-none bg-gray-900 hover:bg-black"
+                        >
+                            Registration
+                        </Link>
+                    ) : (
+                        <button
+                            disabled
+                            className="btn w-full rounded-full text-white border-none bg-gray-900 hover:bg-black"
+                        >
+                            Registration
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
