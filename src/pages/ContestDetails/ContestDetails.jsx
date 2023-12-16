@@ -21,7 +21,7 @@ const ContestDetails = () => {
     const [minutesLeft, setMinutesLeft] = useState("");
     const [secondsLeft, setSecondsLeft] = useState("");
 
-    const [winner, setWinner] = useState("Not Selected");
+    const [timesUp, setTimesUp] = useState(true);
 
     const deadLine = moment(contestDeadline);
 
@@ -70,7 +70,7 @@ const ContestDetails = () => {
     ]);
 
     const handleTimerEnd = () => {
-        setWinner("selected");
+        setTimesUp(true);
     };
 
     return (
@@ -95,12 +95,12 @@ const ContestDetails = () => {
                         <TbUsersGroup /> Attempted Count: {participantsCount}
                     </h3>
                     <h4 className="text-sm md:text-base">{shortDescription}</h4>
-                    {winner === "Not Selected" ? (
+                    {timesUp === false ? (
                         <>
-                            <h3 className="text-2xl font-extrabold">
+                            <h3 className="text-xl md:text-2xl font-extrabold">
                                 Times Left :
                             </h3>
-                            <div className="flex text-xl font-bold items-center gap-5">
+                            <div className="flex text-lg md:text-xl font-bold items-center gap-5">
                                 <div className="text-center">
                                     <p>{daysLeft}</p>
                                     <p>Day</p>
