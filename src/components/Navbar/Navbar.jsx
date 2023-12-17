@@ -1,16 +1,22 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Logo from "../../assets/logo.png";
 import { FaBars } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogout = () => {
-        // Todo: Add a SWAL
-        logOutUser().then((result) => {
-            console.log(result);
+        logOutUser().then(() => {
+            Swal.fire({
+                title: "Success",
+                text: "Logged Out Successfully",
+                icon: "success",
+            });
+            navigate("/");
         });
     };
 

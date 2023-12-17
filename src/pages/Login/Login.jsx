@@ -45,10 +45,8 @@ const Login = () => {
                     userImage: user.photoURL,
                     role: "user",
                 };
-
                 axiosPublic.post("/users", userInfo).then((res) => {
-                    console.log(res.data);
-                    if (res.data.insertedId) {
+                    if (res.data) {
                         Swal.fire({
                             title: "Success",
                             text: "Logged In Successfully",
