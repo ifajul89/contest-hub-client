@@ -14,6 +14,7 @@
         "prizeMoney": 100,
         "colorCode": "yellow",
         "creatorName": "Olivia Martin",
+        "creatorEmail": "patrickbateman@creator.com",
         "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png",
         "contestDeadline": "2023-12-23 00:40:48"
     },
@@ -32,6 +33,7 @@
         "prizeMoney": 100,
         "colorCode": "pink",
         "creatorName": "Sophie Turner",
+        "creatorEmail": "patrickbateman@creator.com",
         "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png",
         "contestDeadline": "2023-12-23 00:40:48"
     },
@@ -49,6 +51,7 @@
         "prizeMoney": 100,
         "colorCode": "blue",
         "creatorName": "Maxwell Thompson",
+        "creatorEmail": "patrickbateman@creator.com",
         "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png",
         "contestDeadline": "2023-12-23 00:40:48"
     },
@@ -66,6 +69,7 @@
         "prizeMoney": 100,
         "colorCode": "yellow",
         "creatorName": "Isabella Miller",
+        "creatorEmail": "patrickbateman@creator.com",
         "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png",
         "contestDeadline": "2023-12-23 00:40:48"
     },
@@ -83,6 +87,7 @@
         "prizeMoney": 100,
         "colorCode": "pink",
         "creatorName": "Christopher Brown",
+        "creatorEmail": "patrickbateman@creator.com",
         "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png",
         "contestDeadline": "2023-12-23 00:40:48"
     },
@@ -100,6 +105,7 @@
         "prizeMoney": 100,
         "colorCode": "blue",
         "creatorName": "Victoria Thompson",
+        "creatorEmail": "patrickbateman@creator.com",
         "creatorImage": "https://i.ibb.co/2WnW0vc/Person-One.png",
         "contestDeadline": "2023-12-23 00:40:48"
     }

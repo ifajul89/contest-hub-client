@@ -54,6 +54,7 @@ const AddContest = () => {
             prizeMoney: data.prizeMoney,
             colorCode: colorCode,
             creatorName: user.displayName,
+            creatorEmail: user.email,
             creatorImage: user.photoURL,
             contestDeadline: futureDate.format("YYYY-MM-DD HH:mm:ss"),
         };
