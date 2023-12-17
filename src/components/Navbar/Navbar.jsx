@@ -8,6 +8,7 @@ const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext);
 
     const handleLogout = () => {
+        // Todo: Add a SWAL
         logOutUser().then((result) => {
             console.log(result);
         });
@@ -38,7 +39,7 @@ const Navbar = () => {
                             role="button"
                             className="btn btn-ghost btn-sm btn-square lg:hidden"
                         >
-                            <FaBars  className="text-xl"/>
+                            <FaBars className="text-xl" />
                         </div>
                         <ul className="dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box space-y-2 w-32">
                             {navItem}

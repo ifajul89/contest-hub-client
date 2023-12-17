@@ -7,7 +7,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_KEY);
 
 const PurchasePage = () => {
     const contestDetail = useLoaderData();
-    const { contestImage, contestName, parcitipationFee } = contestDetail;
+    const { contestImage, contestName, participationFee } = contestDetail;
 
     return (
         <div className="container mx-auto ">
@@ -20,7 +20,7 @@ const PurchasePage = () => {
                     />
                     <h3 className="text-xl md:text-3xl font-bold">{contestName}</h3>
                     <h3 className="text-lg md:text-2xl">
-                        Participation Fee : <b>${parcitipationFee}</b>{" "}
+                        Participation Fee : <b>${participationFee}</b>{" "}
                     </h3>
                 </div>
                 <Elements stripe={stripePromise}>

@@ -3,6 +3,8 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckOut = ({ contestDetail }) => {
     const stripe = useStripe();
@@ -11,15 +13,16 @@ const CheckOut = ({ contestDetail }) => {
     const elements = useElements();
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const { parcitipationFee } = contestDetail;
+    const { participationFee } = contestDetail;
+    const navigate = useNavigate();
 
     useEffect(() => {
         axiosSecure
-            .post("/create-payment-intent", { fee: parcitipationFee })
+            .post("/create-payment-intent", { fee: participationFee })
             .then((res) => {
                 setClientSecret(res.data.clientSecret);
             });
-    }, [axiosSecure, parcitipationFee]);
+    }, [axiosSecure, participationFee]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,8 +50,6 @@ const CheckOut = ({ contestDetail }) => {
             setError("");
         }
 
-        console.log(clientSecret);
-
         const { paymentIntent, error: confirmError } =
             await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
@@ -64,12 +65,35 @@ const CheckOut = ({ contestDetail }) => {
             console.log("Confirm Error", confirmError);
         } else {
             console.log(paymentIntent);
+            if (paymentIntent) {
+                const amount = paymentIntent.amount / 100;
+                const newRegister = {
+                    paymentId: paymentIntent.id,
+                    amount: amount,
+                    registerName: user.displayName,
+                    registerEmail: user.email,
+                };
+                axiosSecure.post("/registered-contests", newRegister).then((res) => {
+                    console.log(res.data);
+                    if(res.data.insertedId){
+                        Swal.fire({
+                            title: "Success",
+                            text: "Registered Successfully",
+                            icon: "success",
+                        });
+                        navigate("/");
+                    }
+                });
+            }
         }
     };
 
     return (
         <div className="container mx-auto">
-            <form className="flex flex-col md:flex-row" onSubmit={handleSubmit}>
+            <form
+                className="flex gap-1 flex-col md:flex-row"
+                onSubmit={handleSubmit}
+            >
                 <CardElement
                     className="border-2 p-3 rounded-xl w-full gap-10"
                     options={{
@@ -89,7 +113,7 @@ const CheckOut = ({ contestDetail }) => {
                 />
                 <p className="text-red-600 py-1">{error}</p>
                 <button
-                    className="btn bg-[#FBC146]"
+                    className="btn bg-[#FBC146] hover:bg-[#dba93d] border-none"
                     type="submit"
                     disabled={!stripe || !clientSecret}
                 >
