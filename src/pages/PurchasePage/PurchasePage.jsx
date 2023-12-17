@@ -10,8 +10,8 @@ const PurchasePage = () => {
     const { contestImage, contestName, participationFee } = contestDetail;
 
     return (
-        <div className="container mx-auto ">
-            <div className="border-[3px] md:w-1/2 mx-auto my-5 md:my-10 border-gray-600 p-5 rounded-2xl">
+        <div className="container mx-auto px-3 md:px-0">
+            <div className="border-[3px] md:w-1/2 mx-auto my-5 md:my-10 border-gray-600 p-3 md:p-5 rounded-2xl">
                 <div className="pb-5 space-y-3">
                     <img
                         className="rounded-lg font-bold"
