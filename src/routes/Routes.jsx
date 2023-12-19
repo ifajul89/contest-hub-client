@@ -14,6 +14,7 @@ import ManageUser from "../pages/Dashboard/AdminComponent/ManageUser";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import AddContest from "../pages/Dashboard/CreatorComponent/AddContest";
 import MyCreatedContests from "../pages/Dashboard/CreatorComponent/MyCreatedContests";
+import SeeSubmission from "../pages/Dashboard/CreatorComponent/SeeSubmission";
 
 const router = createBrowserRouter([
     {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
             {
                 path: "my-created-contest",
                 element: <MyCreatedContests></MyCreatedContests>,
+            },
+            {
+                path: "my-created-contest/:id",
+                element: <SeeSubmission></SeeSubmission>,
             },
         ],
     },
