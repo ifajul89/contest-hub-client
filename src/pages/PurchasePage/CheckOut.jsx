@@ -13,7 +13,7 @@ const CheckOut = ({ contestDetail }) => {
     const elements = useElements();
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const { participationFee } = contestDetail;
+    const { participationFee, contestName, _id } = contestDetail;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -69,21 +69,26 @@ const CheckOut = ({ contestDetail }) => {
                 const amount = paymentIntent.amount / 100;
                 const newRegister = {
                     paymentId: paymentIntent.id,
-                    amount: amount,
+                    amount,
+                    contestName,
+                    contestId: _id,
                     registerName: user.displayName,
+                    registerImage: user.photoURL,
                     registerEmail: user.email,
                 };
-                axiosSecure.post("/registered-contests", newRegister).then((res) => {
-                    console.log(res.data);
-                    if(res.data.insertedId){
-                        Swal.fire({
-                            title: "Success",
-                            text: "Registered Successfully",
-                            icon: "success",
-                        });
-                        navigate("/");
-                    }
-                });
+                axiosSecure
+                    .post("/registered-contests", newRegister)
+                    .then((res) => {
+                        console.log(res.data);
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                title: "Success",
+                                text: "Registered Successfully",
+                                icon: "success",
+                            });
+                            navigate("/");
+                        }
+                    });
             }
         }
     };

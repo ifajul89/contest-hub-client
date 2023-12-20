@@ -50,6 +50,7 @@ const AddContest = () => {
             taskSubmission: data.taskSubmission,
             winnerName: null,
             winnerImage: null,
+            winnerEmail: null,
             contestPrize: data.contestPrize,
             prizeMoney: data.prizeMoney,
             colorCode: colorCode,
