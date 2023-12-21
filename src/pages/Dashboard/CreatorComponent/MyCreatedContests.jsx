@@ -72,7 +72,7 @@ const MyCreatedContests = () => {
                                     <td>
                                         <Link
                                             to={`/dashboard/my-created-contest/${contest._id}`}
-                                            className="btn bg-[#FBC146] hover:bg-[#dba93d] border-none rounded-full"
+                                            className="btn bg-[#FBC146] hover:bg-[#dba93d] border-none rounded-full btn-sm"
                                         >
                                             See Submission
                                         </Link>

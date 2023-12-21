@@ -1,6 +1,7 @@
-import { TiThMenu } from "react-icons/ti";
+import { CgMenuMotion } from "react-icons/cg";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../hooks/useUserRole";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Dashboard = () => {
     const [userRole, userRoleLoading] = useUserRole();
@@ -15,13 +16,17 @@ const Dashboard = () => {
 
     const navItems = (
         <>
+            <Link
+                className="btn btn-circle btn-sm text-lg text-white border-none bg-black bg-opacity-30 hover:bg-black hover:bg-opacity-40"
+                to="/"
+            >
+                <IoMdArrowRoundBack />
+            </Link>
             {userRole.role === "admin" && (
                 <>
-                    <li>
-                        <h3 className="font-bold text-xl underline">
-                            Admin Penal
-                        </h3>
-                    </li>
+                    <h3 className="font-bold text-2xl py-3 px-1">
+                        Admin Penal
+                    </h3>
                     <li>
                         <NavLink to="/dashboard/home">Home</NavLink>
                     </li>
@@ -39,11 +44,9 @@ const Dashboard = () => {
             )}
             {userRole.role === "creator" && (
                 <>
-                    <li>
-                        <h3 className="font-bold text-xl underline">
-                            Creator Penal
-                        </h3>
-                    </li>
+                    <h3 className="font-bold text-2xl py-2 px-1">
+                        Creator Penal
+                    </h3>
                     <li>
                         <NavLink to="/dashboard/home">Home</NavLink>
                     </li>
@@ -61,11 +64,7 @@ const Dashboard = () => {
             )}
             {userRole.role == "user" && (
                 <>
-                    <li>
-                        <h3 className="font-bold text-xl underline">
-                            User Penal
-                        </h3>
-                    </li>
+                    <h3 className="font-bold text-2xl py-2 px-1">User Penal</h3>
                     <li>
                         <NavLink to="/dashboard/home">Home</NavLink>
                     </li>
@@ -82,9 +81,6 @@ const Dashboard = () => {
                     </li>
                 </>
             )}
-            <li>
-                <NavLink to="/">Web Home</NavLink>
-            </li>
         </>
     );
 
@@ -109,9 +105,9 @@ const Dashboard = () => {
                     <div className="drawer-content">
                         <label
                             htmlFor="my-drawer"
-                            className="btn btn-ghost drawer-button text-2xl"
+                            className="btn btn-circle btn-sm drawer-button text-xl text-white border-none bg-black bg-opacity-30 hover:bg-black hover:bg-opacity-40 m-2"
                         >
-                            <TiThMenu></TiThMenu>
+                            <CgMenuMotion />
                         </label>
                     </div>
                     <div className=" md:hidden drawer-side">
@@ -120,11 +116,8 @@ const Dashboard = () => {
                             aria-label="close sidebar"
                             className="drawer-overlay"
                         ></label>
-                        <ul className="menu w-40 min-h-full bg-[#9BD3D0] text-base-content flex-col">
+                        <ul className="menu w-48 min-h-full bg-[#9BD3D0] text-base-content flex-col">
                             {navItems}
-                            <Link to="/" className="btn rounded-full">
-                                Go Back To Home
-                            </Link>
                         </ul>
                     </div>
                 </div>
