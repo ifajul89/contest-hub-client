@@ -57,11 +57,6 @@ const Dashboard = () => {
                             My Created Contest
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/dashboard/contest-submitted">
-                            Contest Submitted
-                        </NavLink>
-                    </li>
                 </>
             )}
             {userRole.role == "user" && (

@@ -70,9 +70,18 @@ const MyCreatedContests = () => {
                                         )}
                                     </td>
                                     <td>
-                                        <Link to={`/dashboard/my-created-contest/${contest._id}`} className="btn bg-[#FBC146] hover:bg-[#dba93d] border-none">
-                                            See Submission
-                                        </Link>
+                                        {contest.participantsCount === 0 ? (
+                                            <p className="font-bold text-gray-600">
+                                                No Submission Yet
+                                            </p>
+                                        ) : (
+                                            <Link
+                                                to={`/dashboard/my-created-contest/${contest._id}`}
+                                                className="btn bg-[#FBC146] hover:bg-[#dba93d] border-none"
+                                            >
+                                                See Submission
+                                            </Link>
+                                        )}
                                     </td>
                                 </tr>
                             ))}

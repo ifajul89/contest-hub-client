@@ -13,7 +13,7 @@ const SeeSubmission = () => {
         refetch,
         isPending,
     } = useQuery({
-        queryKey: ["contestDetails", contestId],
+        queryKey: ["contestDetails"],
         queryFn: async () => {
             const res = await axiosSecure.get(`/contests/${contestId}`);
             return res.data;
