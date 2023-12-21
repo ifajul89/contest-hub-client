@@ -19,10 +19,8 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
         logInUser(data.email, data.password).then((res) => {
             const user = res.user;
-            console.log(user);
             if (user) {
                 reset();
                 Swal.fire({

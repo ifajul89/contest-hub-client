@@ -27,9 +27,7 @@ const SignUp = () => {
                         userImage: data.photoURL,
                         role: "user",
                     };
-                    console.log(userInfo);
                     axiosPublic.post("/users", userInfo).then((res) => {
-                        console.log(res.data)
                         if (res.data.insertedId) {
                             reset();
                             Swal.fire({
@@ -42,7 +40,13 @@ const SignUp = () => {
                     });
                 })
                 .catch((error) => {
-                    console.log(error);
+                    if (error) {
+                        Swal.fire({
+                            title: "Oops!!",
+                            text: "Signed Up Error",
+                            icon: "error",
+                        });
+                    }
                 });
         });
     };

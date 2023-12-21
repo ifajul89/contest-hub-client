@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
-import { FaCheckDouble } from "react-icons/fa6";
 import Swal from "sweetalert2";
 
 const ManageContests = () => {
@@ -28,7 +27,6 @@ const ManageContests = () => {
         );
     }
 
-
     const handleDeleteItem = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -45,6 +43,31 @@ const ManageContests = () => {
                         refetch();
                     }
                 });
+            }
+        });
+    };
+
+    const handleConfirm = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Confirm!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const updatedContest = {
+                    contestStatus: "confirmed",
+                };
+                axiosSecure
+                    .patch(`/admin-contests/${id}`, updatedContest)
+                    .then((res) => {
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                        }
+                    });
             }
         });
     };
@@ -94,13 +117,18 @@ const ManageContests = () => {
                                     </td>
                                     <td>
                                         {contest.contestStatus === "pending" ? (
-                                            <button className="btn btn-ghost">
-                                                <FaCheck className="text-lg text-green-600"></FaCheck>
+                                            <button
+                                                onClick={() =>
+                                                    handleConfirm(contest._id)
+                                                }
+                                                className="btn btn-circle btn-sm bg-green-700 hover:bg-green-800"
+                                            >
+                                                <FaCheck className="text-white"></FaCheck>
                                             </button>
                                         ) : (
-                                            <button className="btn btn-ghost">
-                                                <FaCheckDouble className="text-lg text-green-600"></FaCheckDouble>
-                                            </button>
+                                            <p className="text-green-700">
+                                                Confirmed
+                                            </p>
                                         )}
                                     </td>
                                 </tr>
