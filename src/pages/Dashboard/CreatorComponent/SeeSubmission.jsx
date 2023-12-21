@@ -47,9 +47,6 @@ const SeeSubmission = () => {
                     winnerEmail: email,
                     winnerImage: image,
                 };
-
-                console.log(updatedContest);
-
                 axiosSecure
                     .patch(`/my-created-contests/${id}`, updatedContest)
                     .then((res) => {

@@ -13,7 +13,8 @@ const CheckOut = ({ contestDetail }) => {
     const elements = useElements();
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const { participationFee, contestName, _id } = contestDetail;
+    const { participationFee, participantsCount, contestName, _id } =
+        contestDetail;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -43,7 +44,6 @@ const CheckOut = ({ contestDetail }) => {
         });
 
         if (error) {
-            console.log("Payments Error", error);
             setError(error.message);
         } else {
             console.log("Payment Method", paymentMethod);
@@ -64,7 +64,6 @@ const CheckOut = ({ contestDetail }) => {
         if (confirmError) {
             console.log("Confirm Error", confirmError);
         } else {
-            console.log(paymentIntent);
             if (paymentIntent) {
                 const amount = paymentIntent.amount / 100;
                 const newRegister = {
@@ -79,14 +78,23 @@ const CheckOut = ({ contestDetail }) => {
                 axiosSecure
                     .post("/registered-contests", newRegister)
                     .then((res) => {
-                        console.log(res.data);
+                        
                         if (res.data.insertedId) {
-                            Swal.fire({
-                                title: "Success",
-                                text: "Registered Successfully",
-                                icon: "success",
-                            });
-                            navigate("/");
+                            const updatedContest = {
+                                participantsCount: participantsCount + 1,
+                            };
+                            axiosSecure
+                                .patch(`/contests/${_id}`, updatedContest)
+                                .then((res) => {
+                                    if (res.data.modifiedCount) {
+                                        Swal.fire({
+                                            title: "Success",
+                                            text: "Registered Successfully",
+                                            icon: "success",
+                                        });
+                                        navigate("/");
+                                    }
+                                });
                         }
                     });
             }
