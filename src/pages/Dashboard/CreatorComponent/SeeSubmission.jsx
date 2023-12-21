@@ -58,7 +58,6 @@ const SeeSubmission = () => {
                 axiosSecure
                     .patch(`/my-created-contests/${id}`, updatedContest)
                     .then((res) => {
-                        console.log(res.data);
                         if (res.data.modifiedCount > 0) {
                             refetch();
                         }

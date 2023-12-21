@@ -64,7 +64,7 @@ const ManageContests = () => {
                 axiosSecure
                     .patch(`/admin-contests/${id}`, updatedContest)
                     .then((res) => {
-                        if (res.data.deletedCount > 0) {
+                        if (res.data.modifiedCount > 0) {
                             refetch();
                         }
                     });
