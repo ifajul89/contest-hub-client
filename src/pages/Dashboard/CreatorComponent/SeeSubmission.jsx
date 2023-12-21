@@ -1,12 +1,20 @@
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 
 const SeeSubmission = () => {
-    const registerDetails = useLoaderData();
-    const [{ contestId }] = registerDetails;
     const axiosSecure = useAxiosSecure();
+    const { id } = useParams();
+
+    const { data: registerDetails } = useQuery({
+        queryKey: ["contestDetails"],
+        enabled: !!id,
+        queryFn: async () => {
+            const res = await axiosSecure.get(`my-created-contests/${id}`);
+            return res.data;
+        },
+    });
 
     const {
         data: contestDetails,
@@ -14,8 +22,11 @@ const SeeSubmission = () => {
         isPending,
     } = useQuery({
         queryKey: ["contestDetails"],
+        enabled: !!registerDetails?.contestId,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/contests/${contestId}`);
+            const res = await axiosSecure.get(
+                `/contests/${registerDetails.contestId}`
+            );
             return res.data;
         },
     });
@@ -27,9 +38,6 @@ const SeeSubmission = () => {
             </div>
         );
     }
-
-    console.log("Contest Details", contestDetails);
-    console.log("Winner Email", contestDetails.winnerEmail);
 
     const handleMakeWinner = (id, name, email, image) => {
         Swal.fire({
@@ -138,7 +146,7 @@ const SeeSubmission = () => {
                     </table>
                     {registerDetails.length === 0 && (
                         <h3 className="font-bold text-gray-600 text-xl text-center italic my-10">
-                            No Registration Yet
+                            No Submission Yet
                         </h3>
                     )}
                 </div>

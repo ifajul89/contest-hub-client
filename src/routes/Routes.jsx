@@ -83,10 +83,10 @@ const router = createBrowserRouter([
             {
                 path: "my-created-contest/:id",
                 element: <SeeSubmission></SeeSubmission>,
-                loader: ({ params }) =>
-                    fetch(
-                        `http://localhost:5000/my-created-contests/${params.id}`
-                    ),
+                // loader: ({ params }) =>
+                //     fetch(
+                //         `http://localhost:5000/my-created-contests/${params.id}`
+                //     ),
             },
         ],
     },

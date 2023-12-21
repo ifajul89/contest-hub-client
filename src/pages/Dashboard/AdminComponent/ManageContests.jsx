@@ -110,9 +110,9 @@ const ManageContests = () => {
                                             onClick={() =>
                                                 handleDeleteItem(contest._id)
                                             }
-                                            className="btn btn-ghost"
+                                            className="btn btn-sm md:btn-md btn-circle bg-red-700 hover:bg-red-800 border-none"
                                         >
-                                            <FaRegTrashAlt className="text-lg text-red-600"></FaRegTrashAlt>
+                                            <FaRegTrashAlt className="text-white text-base md:text-lg"></FaRegTrashAlt>
                                         </button>
                                     </td>
                                     <td>
@@ -121,9 +121,9 @@ const ManageContests = () => {
                                                 onClick={() =>
                                                     handleConfirm(contest._id)
                                                 }
-                                                className="btn btn-circle btn-sm bg-green-700 hover:bg-green-800"
+                                                className="btn btn-circle btn-sm md:btn-md bg-green-700 hover:bg-green-800"
                                             >
-                                                <FaCheck className="text-white"></FaCheck>
+                                                <FaCheck className="text-white text-base md:text-lg"></FaCheck>
                                             </button>
                                         ) : (
                                             <p className="text-green-700">
