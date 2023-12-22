@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaCheck, FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUser = () => {
@@ -46,6 +46,10 @@ const ManageUser = () => {
         });
     };
 
+    const handleChangeRole = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <div className="p-5">
             <div className="flex justify-center text-2xl gap-10 pb-10">
@@ -85,16 +89,37 @@ const ManageUser = () => {
                                         <p>{user.userEmail}</p>
                                     </td>
                                     <td>
-                                        <p>{user.role}</p>
+                                        <form
+                                            onSubmit={handleChangeRole}
+                                            className="flex"
+                                        >
+                                            <select
+                                                defaultValue={user.role}
+                                                className="select select-sm rounded-l-full select-bordered w-24"
+                                            >
+                                                <option value="admin">
+                                                    Admin
+                                                </option>
+                                                <option value="creator">
+                                                    Creator
+                                                </option>
+                                                <option value="user">
+                                                    User
+                                                </option>
+                                            </select>
+                                            <button className="btn btn-sm bg-green-700 hover:bg-green-800 border-none rounded-r-full">
+                                                <FaCheck className="text-white"></FaCheck>
+                                            </button>
+                                        </form>
                                     </td>
                                     <th>
                                         <button
                                             onClick={() =>
                                                 handleDeleteItem(user._id)
                                             }
-                                            className="btn btn-ghost"
+                                            className="btn btn-sm md:btn-md btn-circle bg-red-700 hover:bg-red-800 border-none"
                                         >
-                                            <FaRegTrashAlt className="text-lg text-red-600"></FaRegTrashAlt>
+                                            <FaRegTrashAlt className="text-white text-base md:text-lg"></FaRegTrashAlt>
                                         </button>
                                     </th>
                                 </tr>
