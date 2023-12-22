@@ -2,9 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaCheck, FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const ManageUser = () => {
     const axiosSecure = useAxiosSecure();
+    const [selectValue, setSelectValue] = useState("");
 
     const {
         data: users,
@@ -46,8 +48,31 @@ const ManageUser = () => {
         });
     };
 
-    const handleChangeRole = (e) => {
-        e.preventDefault();
+    const handleSelectChange = (e) => {
+        setSelectValue(e.target.value);
+    };
+
+    const handleChangeRole = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you really want to change the role",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Confirm!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const updatedUser = {
+                    role: selectValue,
+                };
+                axiosSecure.patch(`/users/${id}`, updatedUser).then((res) => {
+                    if (res.data.modifiedCount > 0) {
+                        refetch();
+                    }
+                });
+            }
+        });
     };
 
     return (
@@ -90,10 +115,14 @@ const ManageUser = () => {
                                     </td>
                                     <td>
                                         <form
-                                            onSubmit={handleChangeRole}
+                                            onSubmit={(e) => {
+                                                e.preventDefault();
+                                                handleChangeRole(user._id);
+                                            }}
                                             className="flex"
                                         >
                                             <select
+                                                onChange={handleSelectChange}
                                                 defaultValue={user.role}
                                                 className="select select-sm rounded-l-full select-bordered w-24"
                                             >
