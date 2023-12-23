@@ -15,6 +15,8 @@ import DashboardHome from "../pages/Dashboard/DashboardHome";
 import AddContest from "../pages/Dashboard/CreatorComponent/AddContest";
 import MyCreatedContests from "../pages/Dashboard/CreatorComponent/MyCreatedContests";
 import SeeSubmission from "../pages/Dashboard/CreatorComponent/SeeSubmission";
+import MyWinning from "../pages/Dashboard/UserComponent/MyWinning";
+import MyProfile from "../pages/Dashboard/UserComponent/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -83,10 +85,18 @@ const router = createBrowserRouter([
             {
                 path: "my-created-contest/:id",
                 element: <SeeSubmission></SeeSubmission>,
-                // loader: ({ params }) =>
-                //     fetch(
-                //         `http://localhost:5000/my-created-contests/${params.id}`
-                //     ),
+            },
+            {
+                path: "my-participated",
+                element: <MyCreatedContests></MyCreatedContests>,
+            },
+            {
+                path: "my-winning",
+                element: <MyWinning></MyWinning>,
+            },
+            {
+                path: "my-profile",
+                element: <MyProfile></MyProfile>,
             },
         ],
     },
