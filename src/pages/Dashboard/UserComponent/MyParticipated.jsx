@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -9,13 +9,20 @@ import { Link } from "react-router-dom";
 const MyParticipated = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useContext(AuthContext);
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = (event) => {
+        setIsChecked(event.target.checked);
+    };
 
     const { data: myParticipated, isPending } = useQuery({
-        queryKey: ["myCreatedContest"],
+        queryKey: ["myCreatedContest", isChecked],
         enabled: !!user,
         queryFn: async () => {
             const res = await axiosSecure.get(
-                `/registered-contests/${user.email}`
+                `/registered-contests/${user.email}?data${
+                    isChecked ? "sorted" : "all"
+                }`
             );
             return res.data;
         },
@@ -36,6 +43,16 @@ const MyParticipated = () => {
             <div className="flex justify-center text-2xl gap-10 pb-10">
                 <h3>My Created Contests</h3>
                 <h3>Total Contests: {myParticipated.length}</h3>
+            </div>
+            <div className="flex gap-3 justify-end mr-48">
+                <p>Sort By Upcoming Contest</p>
+                <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
+                    className="toggle bg-[#E6B8A4] border-[#E6B8A4] hover:bg-[#B38F7F]"
+                />
+                {isChecked ? "True" : "False"}
             </div>
             <div>
                 <div className="overflow-x-auto">
