@@ -13,8 +13,14 @@ const CheckOut = ({ contestDetail }) => {
     const elements = useElements();
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const { participationFee, participantsCount, contestName, _id } =
-        contestDetail;
+    const {
+        participationFee,
+        participantsCount,
+        contestName,
+        contestImage,
+        contestDeadline,
+        _id,
+    } = contestDetail;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -70,6 +76,8 @@ const CheckOut = ({ contestDetail }) => {
                     paymentId: paymentIntent.id,
                     amount,
                     contestName,
+                    contestImage,
+                    contestDeadline,
                     contestId: _id,
                     registerName: user.displayName,
                     registerImage: user.photoURL,
@@ -78,7 +86,6 @@ const CheckOut = ({ contestDetail }) => {
                 axiosSecure
                     .post("/registered-contests", newRegister)
                     .then((res) => {
-                        
                         if (res.data.insertedId) {
                             const updatedContest = {
                                 participantsCount: participantsCount + 1,

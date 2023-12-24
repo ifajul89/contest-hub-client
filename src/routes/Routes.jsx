@@ -17,6 +17,7 @@ import MyCreatedContests from "../pages/Dashboard/CreatorComponent/MyCreatedCont
 import SeeSubmission from "../pages/Dashboard/CreatorComponent/SeeSubmission";
 import MyWinning from "../pages/Dashboard/UserComponent/MyWinning";
 import MyProfile from "../pages/Dashboard/UserComponent/MyProfile";
+import MyParticipated from "../pages/Dashboard/UserComponent/MyParticipated";
 
 const router = createBrowserRouter([
     {
@@ -88,7 +89,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "my-participated",
-                element: <MyCreatedContests></MyCreatedContests>,
+                element: <MyParticipated></MyParticipated>,
             },
             {
                 path: "my-winning",
