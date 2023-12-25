@@ -7,11 +7,11 @@ const SeeSubmission = () => {
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
 
-    const { data: registerDetails } = useQuery({
+    const { data: registerDetails, isPending: isRegisterLoading } = useQuery({
         queryKey: ["contestDetails"],
         enabled: !!id,
         queryFn: async () => {
-            const res = await axiosSecure.get(`my-created-contests/${id}`);
+            const res = await axiosSecure.get(`/my-created-contests/${id}`);
             return res.data;
         },
     });
@@ -38,6 +38,22 @@ const SeeSubmission = () => {
             </div>
         );
     }
+
+    if (isRegisterLoading) {
+        return (
+            <div className="w-full h-80 flex justify-center items-center">
+                <span className="loading loading-infinity loading-lg"></span>
+            </div>
+        );
+    }
+
+    registerDetails.map((contest) => {
+        console.log(contest);
+    });
+
+    contestDetails.map((contest) => {
+        console.log(contest);
+    });
 
     const handleMakeWinner = (id, name, email, image) => {
         Swal.fire({
@@ -70,7 +86,7 @@ const SeeSubmission = () => {
         <div className="p-5">
             <div className="flex justify-center text-2xl gap-10 pb-10">
                 <h3>Contest Submission</h3>
-                <h3>Total Contestant: {registerDetails.length}</h3>
+                <h3>Total Submission: {registerDetails.length}</h3>
             </div>
             <div>
                 <div className="overflow-x-auto">
@@ -107,7 +123,8 @@ const SeeSubmission = () => {
                                     </td>
                                     <td>
                                         {contestDetails.winnerName === null &&
-                                        contestDetails.winnerImage === null ? (
+                                        contestDetails.winnerImage === null &&
+                                        contestDetails.winnerEmail === null ? (
                                             <button
                                                 onClick={() =>
                                                     handleMakeWinner(

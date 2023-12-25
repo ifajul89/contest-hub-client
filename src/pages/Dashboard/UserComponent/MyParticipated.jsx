@@ -16,11 +16,11 @@ const MyParticipated = () => {
     };
 
     const { data: myParticipated, isPending } = useQuery({
-        queryKey: ["myCreatedContest", isChecked],
+        queryKey: ["myParticipated", isChecked],
         enabled: !!user,
         queryFn: async () => {
             const res = await axiosSecure.get(
-                `/registered-contests/${user.email}?data${
+                `/registered-contests/${user.email}?data=${
                     isChecked ? "sorted" : "all"
                 }`
             );
@@ -35,6 +35,10 @@ const MyParticipated = () => {
             </div>
         );
     }
+
+    console.log(myParticipated);
+
+    
 
     const currentDate = moment();
 
