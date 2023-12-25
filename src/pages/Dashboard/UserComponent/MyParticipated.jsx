@@ -30,7 +30,7 @@ const MyParticipated = () => {
 
     if (isPending) {
         return (
-            <div className="w-full h-80 flex justify-center items-center">
+            <div className="w-full h-screen flex justify-center items-center">
                 <span className="loading loading-infinity loading-lg"></span>
             </div>
         );
@@ -48,15 +48,14 @@ const MyParticipated = () => {
                 <h3>My Created Contests</h3>
                 <h3>Total Contests: {myParticipated.length}</h3>
             </div>
-            <div className="flex gap-3 justify-end mr-48">
-                <p>Sort By Upcoming Contest</p>
+            <div className="flex gap-3 justify-center mb-5">
+                <p>Sort By Upcoming Contest:</p>
                 <input
                     type="checkbox"
                     checked={isChecked}
                     onChange={handleCheckboxChange}
                     className="toggle bg-[#E6B8A4] border-[#E6B8A4] hover:bg-[#B38F7F]"
                 />
-                {isChecked ? "True" : "False"}
             </div>
             <div>
                 <div className="overflow-x-auto">
@@ -69,7 +68,6 @@ const MyParticipated = () => {
                                 <th>Submission</th>
                             </tr>
                         </thead>
-                        ,
                         <tbody>
                             {myParticipated.map((contest) => (
                                 <tr key={contest._id}>
@@ -99,7 +97,7 @@ const MyParticipated = () => {
                                                     Time:{" "}
                                                     {moment(
                                                         contest.contestDeadline
-                                                    ).format("HH:mm:ss")}
+                                                    ).format("hh:mm A")}
                                                 </div>
                                             </>
                                         ) : (
