@@ -2,13 +2,15 @@ import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 
 const SeeSubmission = () => {
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
+    const [contestDetails, setContestDetails] = useState([]);
 
     const { data: registerDetails, isPending: isRegisterLoading } = useQuery({
-        queryKey: ["contestDetails"],
+        queryKey: ["registerDetails", id],
         enabled: !!id,
         queryFn: async () => {
             const res = await axiosSecure.get(`/my-created-contests/${id}`);
@@ -16,28 +18,15 @@ const SeeSubmission = () => {
         },
     });
 
-    const {
-        data: contestDetails,
-        refetch,
-        isPending,
-    } = useQuery({
-        queryKey: ["contestDetails"],
-        enabled: !!registerDetails?.contestId,
-        queryFn: async () => {
-            const res = await axiosSecure.get(
-                `/contests/${registerDetails.contestId}`
-            );
-            return res.data;
-        },
-    });
-
-    if (isPending) {
-        return (
-            <div className="w-full h-80 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
-    }
+    useEffect(() => {
+        if (registerDetails?.length) {
+            axiosSecure
+                .get(`/contests/${registerDetails[1]?.contestId}`)
+                .then((res) => {
+                    setContestDetails(res.data);
+                });
+        }
+    }, [axiosSecure, registerDetails]);
 
     if (isRegisterLoading) {
         return (
@@ -46,14 +35,6 @@ const SeeSubmission = () => {
             </div>
         );
     }
-
-    registerDetails.map((contest) => {
-        console.log(contest);
-    });
-
-    contestDetails.map((contest) => {
-        console.log(contest);
-    });
 
     const handleMakeWinner = (id, name, email, image) => {
         Swal.fire({
@@ -75,7 +56,7 @@ const SeeSubmission = () => {
                     .patch(`/my-created-contests/${id}`, updatedContest)
                     .then((res) => {
                         if (res.data.modifiedCount > 0) {
-                            refetch();
+                            // refetch();
                         }
                     });
             }
@@ -160,7 +141,7 @@ const SeeSubmission = () => {
                             ))}
                         </tbody>
                     </table>
-                    {registerDetails.length === 0 && (
+                    {registerDetails?.length === 0 && (
                         <h3 className="font-bold text-gray-600 text-xl text-center italic my-10">
                             No Submission Yet
                         </h3>
