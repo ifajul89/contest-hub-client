@@ -2,38 +2,36 @@ import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import FullScreenLoading from "../../../components/FullScreenLoading";
 
 const SeeSubmission = () => {
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
-    const [contestDetails, setContestDetails] = useState([]);
 
     const { data: registerDetails, isPending: isRegisterLoading } = useQuery({
         queryKey: ["registerDetails", id],
         enabled: !!id,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/my-created-contests/${id}`);
+            const res = await axiosSecure.get(`/submission/${id}`);
             return res.data;
         },
     });
 
-    useEffect(() => {
-        if (registerDetails?.length) {
-            axiosSecure
-                .get(`/contests/${registerDetails[1]?.contestId}`)
-                .then((res) => {
-                    setContestDetails(res.data);
-                });
-        }
-    }, [axiosSecure, registerDetails]);
+    const {
+        data: contestDetails,
+        isPending: isContestLoading,
+        refetch,
+    } = useQuery({
+        queryKey: ["contestDetails", id],
+        enabled: !!id,
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/contests/${id}`);
+            return res.data;
+        },
+    });
 
-    if (isRegisterLoading) {
-        return (
-            <div className="w-full h-80 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+    if (isRegisterLoading || isContestLoading) {
+        return <FullScreenLoading></FullScreenLoading>;
     }
 
     const handleMakeWinner = (id, name, email, image) => {
@@ -56,7 +54,7 @@ const SeeSubmission = () => {
                     .patch(`/my-created-contests/${id}`, updatedContest)
                     .then((res) => {
                         if (res.data.modifiedCount > 0) {
-                            // refetch();
+                            refetch();
                         }
                     });
             }

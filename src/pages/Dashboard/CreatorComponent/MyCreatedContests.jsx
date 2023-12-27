@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import FullScreenLoading from "../../../components/FullScreenLoading";
 
 const MyCreatedContests = () => {
     const axiosSecure = useAxiosSecure();
@@ -19,11 +20,7 @@ const MyCreatedContests = () => {
     });
 
     if (isPending) {
-        return (
-            <div className="w-full h-80 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+        return <FullScreenLoading></FullScreenLoading>;
     }
 
     return (
