@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import FullScreenLoading from "../../../components/FullScreenLoading";
+import { Link } from "react-router-dom";
 
 const MyWinning = () => {
     const { user } = useContext(AuthContext);
@@ -10,26 +12,22 @@ const MyWinning = () => {
 
     const { data: myWinnings, isPending } = useQuery({
         queryKey: ["myWinnings"],
-        enabled: !!user,
+        enabled: !!user?.email,
         queryFn: async () => {
             const res = await axiosSecure.get(
-                `/my-winning-contests/${user.email}}`
+                `/my-winning-contests/${user?.email}`
             );
             return res.data;
         },
     });
 
     if (isPending) {
-        return (
-            <div className="w-full h-80 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+        return <FullScreenLoading></FullScreenLoading>;
     }
 
     return (
         <div className="p-5">
-            <div className="flex justify-center text-2xl gap-10 pb-10">
+            <div className="flex justify-center text-lg md:text-2xl font-bold gap-5  md:gap-10 pb-10">
                 <h3>My Winning Contests</h3>
                 <h3>Total Wins: {myWinnings.length}</h3>
             </div>
@@ -40,8 +38,8 @@ const MyWinning = () => {
                             <tr>
                                 <th>Image</th>
                                 <th>Name</th>
-                                <th>Deadline</th>
-                                <th>Submission</th>
+                                <th>Category</th>
+                                <th>Details</th>
                             </tr>
                         </thead>
                         ,
@@ -60,8 +58,19 @@ const MyWinning = () => {
                                     <td>
                                         <p>{contest.contestName}</p>
                                     </td>
-                                    <td>Normal</td>
-                                    <td>normal</td>
+                                    <td>
+                                        <span className="border-2 border-[#E6B8A4] px-3 py-1 rounded-full">
+                                            {contest.contestCategory}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <Link
+                                            className="btn rounded-full btn-sm bg-[#E6B8A4] border-0 hover:bg-[#CCA491]"
+                                            to={`/contest-details-page/${contest._id}`}
+                                        >
+                                            See Details
+                                        </Link>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

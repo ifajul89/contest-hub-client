@@ -38,13 +38,11 @@ const MyParticipated = () => {
 
     console.log(myParticipated);
 
-    
-
     const currentDate = moment();
 
     return (
         <div className="p-5">
-            <div className="flex justify-center text-2xl gap-10 pb-10">
+            <div className="flex justify-center text-lg md:text-2xl font-bold gap-5  md:gap-10 pb-10">
                 <h3>My Created Contests</h3>
                 <h3>Total Contests: {myParticipated.length}</h3>
             </div>
