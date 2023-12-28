@@ -10,7 +10,7 @@ const MyWinning = () => {
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
 
-    const { data: myWinnings, isPending } = useQuery({
+    const { data: myWinnings, isPending: isMyWinningsLoading } = useQuery({
         queryKey: ["myWinnings"],
         enabled: !!user?.email,
         queryFn: async () => {
@@ -21,7 +21,7 @@ const MyWinning = () => {
         },
     });
 
-    if (isPending) {
+    if (isMyWinningsLoading) {
         return <FullScreenLoading></FullScreenLoading>;
     }
 

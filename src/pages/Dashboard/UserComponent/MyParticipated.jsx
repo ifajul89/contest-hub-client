@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import FullScreenLoading from "../../../components/FullScreenLoading";
 
 const MyParticipated = () => {
     const axiosSecure = useAxiosSecure();
@@ -15,28 +16,23 @@ const MyParticipated = () => {
         setIsChecked(event.target.checked);
     };
 
-    const { data: myParticipated, isPending } = useQuery({
-        queryKey: ["myParticipated", isChecked],
-        enabled: !!user,
-        queryFn: async () => {
-            const res = await axiosSecure.get(
-                `/registered-contests/${user.email}?data=${
-                    isChecked ? "sorted" : "all"
-                }`
-            );
-            return res.data;
-        },
-    });
+    const { data: myParticipated, isPending: isMyParticipatedLoading } =
+        useQuery({
+            queryKey: ["myParticipated", isChecked],
+            enabled: !!user,
+            queryFn: async () => {
+                const res = await axiosSecure.get(
+                    `/registered-contests/${user.email}?data=${
+                        isChecked ? "sorted" : "all"
+                    }`
+                );
+                return res.data;
+            },
+        });
 
-    if (isPending) {
-        return (
-            <div className="w-full h-screen flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+    if (isMyParticipatedLoading) {
+        return <FullScreenLoading></FullScreenLoading>;
     }
-
-    console.log(myParticipated);
 
     const currentDate = moment();
 
