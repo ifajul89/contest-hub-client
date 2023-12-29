@@ -60,10 +60,7 @@ const Header = () => {
                         </form>
                     </div>
                     <div className="lg:w-1/2 flex relative h-72 md:h-[600px] lg:h-[500px]">
-                        <div
-                            className="bg-[#E6B8A4] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute bottom-0 right-2 sm:right-10 z-10
-                "
-                        >
+                        <div className="bg-[#E6B8A4] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute bottom-0 right-2 sm:right-10 md:right-20 z-10">
                             <div className="bg-[#9BD3D0] border border-gray-900 h-full flex items-end rounded-t-full">
                                 <img src={GreenHoodieGuy} alt="" />
                                 <div className="border-2 border-gray-900 rounded-full bg-white p-3 absolute -bottom-4 -right-4">
@@ -71,12 +68,12 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-[#9BD3D0] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute top-0 left-0 sm:left-10 xl:left-32">
+                        <div className="bg-[#9BD3D0] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute top-0 left-0 sm:left-10 xl:left-48">
                             <div className="bg-[#E6B8A4] border border-gray-900 pt-5 px-5 rounded-t-full">
                                 <img src={YellowTShirtLady} alt="" />
                             </div>
                         </div>
-                        <div className="absolute flex text-4xl md:text-6xl bottom-0 left-0 md:left-10 xl:left-32">
+                        <div className="absolute flex text-4xl md:text-6xl bottom-0 left-0 md:left-10 xl:left-40">
                             <WiDirectionLeft></WiDirectionLeft>
                             <WiDirectionLeft></WiDirectionLeft>
                         </div>
