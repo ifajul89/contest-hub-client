@@ -36,6 +36,8 @@ const MyProfile = () => {
         return <FullScreenLoading></FullScreenLoading>;
     }
 
+    const winPercentage = (myWinnings.length / myParticipated.length) * 100;
+
     return (
         <div className="p-10">
             <div className="flex w-full items-center gap-5">
@@ -56,7 +58,7 @@ const MyProfile = () => {
                 </div>
             </div>
             <div className="divider"></div>
-            <div className="flex">
+            <div className="flex gap-10">
                 <div className="w-1/2 text-lg space-y-5">
                     <p>
                         Hey{" "}
@@ -88,6 +90,25 @@ const MyProfile = () => {
                         for exclusive perks and surprises – we've got some sweet
                         rewards for our go-getters, and you're on that list!
                     </p>
+                </div>
+                <div className="flex flex-col gap-5 text-xl font-bold justify-center items-center 1/2">
+                    <div className="flex gap-10">
+                        <h3>My Participation: {myParticipated?.length}</h3>
+                        <h3>My Winning: {myWinnings?.length}</h3>
+                    </div>
+                    <div className="bg-gray-100 rounded-full">
+                        <div
+                            className="radial-progress"
+                            style={{
+                                "--value": `${winPercentage}`,
+                                "--size": "20rem",
+                                "--thickness": "2rem",
+                            }}
+                            role="progressbar"
+                        >
+                            Win Percentage: {winPercentage}%
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
