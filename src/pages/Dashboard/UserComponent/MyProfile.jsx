@@ -58,8 +58,8 @@ const MyProfile = () => {
                 </div>
             </div>
             <div className="divider"></div>
-            <div className="flex gap-10">
-                <div className="w-1/2 text-lg space-y-5">
+            <div className="flex flex-col md:flex-row gap-10">
+                <div className="md:w-1/2 text-lg space-y-5">
                     <p>
                         Hey{" "}
                         <span className="text-[#E6B8A4] font-extrabold">
@@ -91,12 +91,12 @@ const MyProfile = () => {
                         rewards for our go-getters, and you're on that list!
                     </p>
                 </div>
-                <div className="flex flex-col gap-5 text-xl font-bold justify-center items-center 1/2">
+                <div className="flex flex-col gap-5 text-xl font-bold justify-center items-center md:w-1/2">
                     <div className="flex gap-10">
                         <h3>My Participation: {myParticipated?.length}</h3>
                         <h3>My Winning: {myWinnings?.length}</h3>
                     </div>
-                    <div className="bg-gray-100 rounded-full">
+                    <div className="bg-gray-200 rounded-full">
                         <div
                             className="radial-progress"
                             style={{
