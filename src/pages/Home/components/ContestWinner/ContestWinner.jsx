@@ -99,7 +99,7 @@ export default function ContestWinner() {
                                         index === 1 && "border-[#9BD3D0]"
                                     } ${index === 2 && "border-[#E6B8A4]"} ${
                                         index === 3 && "border-[#FBC146]"
-                                    }`}
+                                    } w-full`}
                                     src={winner.winnerImage}
                                     alt="Winner Image"
                                 />

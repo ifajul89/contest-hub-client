@@ -68,7 +68,7 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-[#9BD3D0] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute top-0 left-0 sm:left-10 xl:left-48">
+                        <div className="bg-[#9BD3D0] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute top-0 left-0 sm:left-10 xl:left-36">
                             <div className="bg-[#E6B8A4] border border-gray-900 pt-5 px-5 rounded-t-full">
                                 <img src={YellowTShirtLady} alt="" />
                             </div>
