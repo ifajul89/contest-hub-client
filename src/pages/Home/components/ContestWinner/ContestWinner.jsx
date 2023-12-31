@@ -83,7 +83,7 @@ export default function ContestWinner() {
     }
 
     return (
-        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-5 md:gap-32 mt-5 md:mt-16 mb-14 md:mb-24">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-5 md:gap-40 mt-5 md:mt-16 mb-14 md:mb-24">
             <div className="wrapper">
                 <div className="scene">
                     <div className="carousel keen-slider" ref={sliderRef}>
@@ -109,10 +109,10 @@ export default function ContestWinner() {
                 </div>
             </div>
             <div className="md:w-1/3 space-y-2 text-center md:text-left">
-                <h3 className="text-xl md:text-4xl font-bold">
+                <h3 className="text-xl md:text-5xl font-bold">
                     See Our Winners
                 </h3>
-                <p className="text-sm">
+                <p className="text-sm md:text-lg px-3 md:px-0">
                     Kudos to our recent contest winners! Now, it's YOUR turn to
                     shine. Join our contests, showcase your creativity, and be
                     the next star in our "Contest Winners" section. Unleash your
