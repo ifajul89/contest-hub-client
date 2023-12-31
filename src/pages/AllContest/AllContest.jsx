@@ -25,11 +25,7 @@ const AllContest = () => {
     });
 
     if (isPending) {
-        return (
-            <div className="w-full h-80 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+        return <FullScreenLoading></FullScreenLoading>;
     }
 
     if (allContestLoading) {

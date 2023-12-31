@@ -12,6 +12,7 @@ const ContestDetails = () => {
         shortDescription,
         winnerName,
         winnerImage,
+        winnerEmail,
         colorCode,
         contestDeadline,
     } = useLoaderData();
@@ -124,16 +125,24 @@ const ContestDetails = () => {
                             <h3 className="md:text-xl font-bold">
                                 Winner Info:
                             </h3>
-                            <span className="flex gap-2 items-center p-2 border-2 border-gray-900 rounded-full">
-                                <img
-                                    className="rounded-full w-10"
-                                    src={winnerImage}
-                                    alt=""
-                                />
-                                <h3 className="md:text-xl font-bold">
-                                    {winnerName}
+                            {winnerName === null &&
+                            winnerImage === null &&
+                            winnerEmail === null ? (
+                                <h3 className="font-bold text-gray-600 italic text-xl">
+                                    Winner Not Selected Yet
                                 </h3>
-                            </span>
+                            ) : (
+                                <span className="flex gap-2 items-center p-2 border-2 border-gray-900 rounded-full">
+                                    <img
+                                        className="rounded-full w-10"
+                                        src={winnerImage}
+                                        alt=""
+                                    />
+                                    <h3 className="md:text-xl font-bold">
+                                        {winnerName}
+                                    </h3>
+                                </span>
+                            )}
                         </div>
                     )}
                     {timesUp === true ? (
@@ -148,7 +157,7 @@ const ContestDetails = () => {
                             disabled
                             className="btn w-full rounded-full text-white border-none bg-gray-900 hover:bg-black"
                         >
-                            Registration
+                            Times Up
                         </button>
                     )}
                 </div>
