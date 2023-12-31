@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SingleContest from "../Home/components/SingleContest";
 import { useState } from "react";
+import FullScreenLoading from "../../components/FullScreenLoading";
 
 const AllContest = () => {
     const axiosPublic = useAxiosPublic();
@@ -32,11 +33,7 @@ const AllContest = () => {
     }
 
     if (allContestLoading) {
-        return (
-            <div className="w-full h-80 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+        return <FullScreenLoading></FullScreenLoading>;
     }
 
     return (
@@ -53,7 +50,8 @@ const AllContest = () => {
                     <button
                         onClick={() => setSearchTag(contest.contestCategory)}
                         className={`bg-[#9BD3D0] hover:bg-[#76A19E] rounded-full px-2 md:px-3 md:py-1 text-white ${
-                            contest.contestCategory === searchTag && "activeSearchTag"
+                            contest.contestCategory === searchTag &&
+                            "activeSearchTag"
                         }`}
                         key={contest._id}
                     >

@@ -74,7 +74,7 @@ const Navbar = () => {
                                     alt="Profile"
                                 />
                             </summary>
-                            <ul className="p-3 space-y-2 shadow dropdown-content z-[1] bg-base-100 rounded-box w-40">
+                            <ul className="p-3 space-y-2 shadow dropdown-content z-[1] bg-base-100 rounded-box w-48">
                                 <li className="text-center text-gray-500 text-xl">
                                     {user?.displayName}
                                 </li>
