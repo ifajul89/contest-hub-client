@@ -13,7 +13,7 @@ export default function BestContestCreator({ creators }) {
             <div className="flex items-end justify-center gap-5 pt-2 md:py-2 container mx-auto text-white">
                 <div className="text-center md:py-3">
                     <h3 className="text-lg md:text-4xl font-bold underline">
-                        Best Contest Creator
+                        Best Contest Creators
                     </h3>
                 </div>
                 <HiMiniArrowTrendingDown className="hidden md:inline-block text-5xl" />
@@ -21,7 +21,7 @@ export default function BestContestCreator({ creators }) {
             {creators.map((creator, index) => (
                 <div
                     key={creator._id}
-                    className={`flex pt-5 ${
+                    className={`flex px-3 md:px-0 pt-5 ${
                         index === 1 && "flex-row-reverse"
                     } w-full items-center justify-center gap-3 md:gap-10 ${
                         index === 0 && "bg-[#FBC146]"
@@ -54,8 +54,8 @@ export default function BestContestCreator({ creators }) {
                             <BsInstagram></BsInstagram>
                         </div>
                     </div>
-                    <div className="">
-                        <img src={creator.creatorImage} alt="Creator Image" />
+                    <div className="w-1/2 md:w-1/5">
+                        <img className="w-full" src={creator.creatorImage} alt="Creator Image" />
                     </div>
                 </div>
             ))}
