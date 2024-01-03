@@ -24,7 +24,7 @@ const SingleContest = ({ contest }) => {
     };
 
     return (
-        <div className="px-5 md:w-2/5 lg:w-1/4">
+        <div className="px-5 md:px-0 md:w-2/5 lg:w-1/4">
             <div className="bg-white border-2 border-gray-400 rounded-xl shadow-lg custom-shadow p-3 items-start gap-1 md:gap-2 flex flex-col">
                 <img className="rounded-lg" src={contestImage} alt="" />
                 <h2 className="md:text-2xl font-bold">{contestName}</h2>
