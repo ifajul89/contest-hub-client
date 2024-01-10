@@ -18,6 +18,7 @@ import SeeSubmission from "../pages/Dashboard/CreatorComponent/SeeSubmission";
 import MyWinning from "../pages/Dashboard/UserComponent/MyWinning";
 import MyProfile from "../pages/Dashboard/UserComponent/MyProfile";
 import MyParticipated from "../pages/Dashboard/UserComponent/MyParticipated";
+import Leaderboard from "../pages/Leaderboard/Leaderboard";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: "/all-contest",
                 element: <AllContest></AllContest>,
+            },
+            {
+                path: "/leaderboard",
+                element: <Leaderboard></Leaderboard>,
             },
             {
                 path: "/contest-details-page/:id",

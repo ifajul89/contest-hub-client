@@ -35,14 +35,14 @@ const Navbar = () => {
                     All Contest
                 </NavLink>
             </li>
-            {/* <li>
+            <li>
                 <NavLink
                     className="px-2 py-1 hover:text-black"
                     to="/leaderboard"
                 >
                     Leaderboard
                 </NavLink>
-            </li> */}
+            </li>
         </>
     );
 
@@ -73,7 +73,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="flex items-center justify-center">
+                    <ul className="flex items-center justify-center gap-1">
                         {navItem}
                     </ul>
                 </div>
