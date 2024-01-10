@@ -28,10 +28,21 @@ const Navbar = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink className="px-2 py-1 hover:text-black" to="/all-contest">
+                <NavLink
+                    className="px-2 py-1 hover:text-black"
+                    to="/all-contest"
+                >
                     All Contest
                 </NavLink>
             </li>
+            {/* <li>
+                <NavLink
+                    className="px-2 py-1 hover:text-black"
+                    to="/leaderboard"
+                >
+                    Leaderboard
+                </NavLink>
+            </li> */}
         </>
     );
 
@@ -62,7 +73,9 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="flex items-center justify-center">{navItem}</ul>
+                    <ul className="flex items-center justify-center">
+                        {navItem}
+                    </ul>
                 </div>
                 <div className="navbar-end">
                     {user ? (
