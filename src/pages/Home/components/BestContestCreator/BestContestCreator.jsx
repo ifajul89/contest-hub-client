@@ -6,6 +6,9 @@ import { FaFacebook } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { HiMiniArrowTrendingDown } from "react-icons/hi2";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 export default function BestContestCreator({ creators }) {
     return (
@@ -19,7 +22,7 @@ export default function BestContestCreator({ creators }) {
                 <HiMiniArrowTrendingDown className="hidden md:inline-block text-5xl" />
             </div>
             {creators.map((creator, index) => (
-                <div
+                <div  data-aos="fade-right"
                     key={creator._id}
                     className={`flex px-3 md:px-0 pt-5 ${
                         index === 1 && "flex-row-reverse"
@@ -30,6 +33,7 @@ export default function BestContestCreator({ creators }) {
                     }`}
                 >
                     <div
+                        data-aos="fade-right"
                         className={`w-3/5 md:w-2/5 space-y-1 sm:space-y-3 ${
                             index === 1 ? "text-left" : "text-right"
                         }`}
@@ -55,7 +59,11 @@ export default function BestContestCreator({ creators }) {
                         </div>
                     </div>
                     <div className="w-1/2 md:w-1/5">
-                        <img className="w-full" src={creator.creatorImage} alt="Creator Image" />
+                        <img
+                            className="w-full"
+                            src={creator.creatorImage}
+                            alt="Creator Image"
+                        />
                     </div>
                 </div>
             ))}

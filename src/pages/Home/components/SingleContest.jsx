@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { TbUsersGroup } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const SingleContest = ({ contest }) => {
     const {
@@ -24,7 +27,7 @@ const SingleContest = ({ contest }) => {
     };
 
     return (
-        <div className="px-5 md:px-0 md:w-2/5 lg:w-1/4">
+        <div data-aos="fade-up-left" data-aos-duration="1000" className="px-5 md:px-0 md:w-2/5 lg:w-1/4">
             <div className="bg-white border-2 border-gray-400 rounded-xl shadow-lg custom-shadow p-3 items-start gap-1 md:gap-2 flex flex-col">
                 <img className="rounded-lg" src={contestImage} alt="" />
                 <h2 className="md:text-2xl font-bold">{contestName}</h2>

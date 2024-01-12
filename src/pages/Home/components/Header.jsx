@@ -6,6 +6,9 @@ import { FaCheck } from "react-icons/fa6";
 import { WiDirectionLeft } from "react-icons/wi";
 import { useState } from "react";
 import SearchedContests from "./SearchedContests";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Header = () => {
     const [search, setSearch] = useState("");
@@ -24,7 +27,7 @@ const Header = () => {
         <div>
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row justify-around lg:items-center md:py-10 px-3 md:px-0 gap-3 mb-5">
-                    <div className="space-y-5">
+                    <div data-aos="zoom-out-right" className="space-y-5">
                         <h3 className="text-4xl lg:text-6xl font-bold">
                             Create Your
                             <br />
@@ -59,7 +62,10 @@ const Header = () => {
                             />
                         </form>
                     </div>
-                    <div className="lg:w-1/2 flex relative h-72 md:h-[600px] lg:h-[500px]">
+                    <div
+                        data-aos="zoom-out-left"
+                        className="lg:w-1/2 flex relative h-72 md:h-[600px] lg:h-[500px]"
+                    >
                         <div className="bg-[#E6B8A4] border border-gray-900 p-4 w-40 md:w-60 rounded-t-full absolute bottom-0 right-2 sm:right-10 md:right-20 z-10">
                             <div className="bg-[#9BD3D0] border border-gray-900 h-full flex items-end rounded-t-full">
                                 <img src={GreenHoodieGuy} alt="" />
