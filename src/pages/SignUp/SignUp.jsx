@@ -25,6 +25,7 @@ const SignUp = () => {
                         userName: data.name,
                         userEmail: data.email,
                         userImage: data.photoURL,
+                        winCount: 0,
                         role: "user",
                     };
                     axiosPublic.post("/users", userInfo).then((res) => {
@@ -43,7 +44,7 @@ const SignUp = () => {
                     if (error) {
                         Swal.fire({
                             title: "Oops!!",
-                            text: "Signed Up Error",
+                            text: "Sign Up Error",
                             icon: "error",
                         });
                     }

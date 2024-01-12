@@ -73,7 +73,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="flex items-center justify-center gap-1">
+                    <ul className="flex items-center justify-center gap-2">
                         {navItem}
                     </ul>
                 </div>
