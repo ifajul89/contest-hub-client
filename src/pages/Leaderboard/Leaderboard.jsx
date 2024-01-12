@@ -18,7 +18,7 @@ const Leaderboard = () => {
     }
 
     return (
-        <div className="container mx-auto p-10 min-h-[80vh] ">
+        <div className="container mx-auto p-3 md:p-10 min-h-[80vh] ">
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
