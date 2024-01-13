@@ -2,16 +2,13 @@ import { CgMenuMotion } from "react-icons/cg";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../hooks/useUserRole";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import FullScreenLoading from "../../components/FullScreenLoading";
 
 const Dashboard = () => {
     const [userRole, userRoleLoading] = useUserRole();
 
     if (userRoleLoading) {
-        return (
-            <div className="w-full h-20 flex justify-center items-center">
-                <span className="loading loading-infinity loading-lg"></span>
-            </div>
-        );
+        return <FullScreenLoading></FullScreenLoading>;
     }
 
     const navItems = (
